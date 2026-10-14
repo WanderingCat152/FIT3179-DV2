@@ -1,0 +1,99 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "The eight LGAs with the largest gap between their strongest and weakest facility-domain coverage.",
+  "data": {"url": "data/lga_access.csv"},
+  "transform": [
+    {
+      "calculate": "min(datum.coverage_pct_800m_health, datum.coverage_pct_800m_education, datum.coverage_pct_800m_cultural, datum.coverage_pct_800m_community_sport)",
+      "as": "domain_min"
+    },
+    {
+      "calculate": "max(datum.coverage_pct_800m_health, datum.coverage_pct_800m_education, datum.coverage_pct_800m_cultural, datum.coverage_pct_800m_community_sport)",
+      "as": "domain_max"
+    },
+    {
+      "calculate": "datum.domain_max - datum.domain_min",
+      "as": "domain_gap_pp"
+    },
+    {
+      "window": [{"op": "row_number", "as": "gap_rank"}],
+      "sort": [{"field": "domain_gap_pp", "order": "descending"}]
+    },
+    {"filter": "datum.gap_rank <= 8"},
+    {
+      "fold": [
+        "coverage_pct_800m_health",
+        "coverage_pct_800m_education",
+        "coverage_pct_800m_cultural",
+        "coverage_pct_800m_community_sport"
+      ],
+      "as": ["domain_key", "coverage_pct"]
+    },
+    {
+      "calculate": "datum.domain_key === 'coverage_pct_800m_health' ? 'Health' : datum.domain_key === 'coverage_pct_800m_education' ? 'Education' : datum.domain_key === 'coverage_pct_800m_cultural' ? 'Cultural' : 'Community / sport'",
+      "as": "domain"
+    }
+  ],
+  "width": 920,
+  "height": 350,
+  "layer": [
+    {
+      "mark": {"type": "rule", "stroke": "#8a979b", "strokeWidth": 2},
+      "encoding": {
+        "y": {
+          "field": "lga_name_2021",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "domain_gap_pp", "order": "descending"}
+        },
+        "x": {
+          "field": "domain_min",
+          "type": "quantitative",
+          "title": "Population-weighted coverage within 800 m (%)",
+          "scale": {"domain": [0, 100]}
+        },
+        "x2": {"field": "domain_max"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 115, "stroke": "#fffdf8", "strokeWidth": 1},
+      "encoding": {
+        "y": {
+          "field": "lga_name_2021",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "domain_gap_pp", "order": "descending"}
+        },
+        "x": {
+          "field": "coverage_pct",
+          "type": "quantitative",
+          "title": "Population-weighted coverage within 800 m (%)",
+          "scale": {"domain": [0, 100]}
+        },
+        "color": {
+          "field": "domain",
+          "type": "nominal",
+          "title": "Facility domain",
+          "scale": {
+            "domain": ["Health", "Education", "Cultural", "Community / sport"],
+            "range": ["#d56a62", "#dda844", "#6f62a6", "#4d9b74"]
+          },
+          "legend": {"orient": "bottom", "direction": "horizontal", "columns": 4}
+        },
+        "tooltip": [
+          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "domain", "type": "nominal", "title": "Domain"},
+          {"field": "coverage_pct", "type": "quantitative", "title": "Coverage", "format": ".1f"},
+          {"field": "domain_gap_pp", "type": "quantitative", "title": "Largest domain gap", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "font": "Segoe UI",
+    "view": {"stroke": null},
+    "axis": {"domain": false, "gridColor": "#e1e3de", "labelColor": "#334b53", "titleColor": "#152b35"},
+    "legend": {"labelColor": "#334b53", "titleColor": "#152b35"}
+  }
+}

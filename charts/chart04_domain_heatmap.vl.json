@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap comparing four facility-domain coverage percentages for every LGA.",
+  "data": {"url": "data/lga_access.csv"},
+  "transform": [
+    {
+      "fold": [
+        "coverage_pct_800m_health",
+        "coverage_pct_800m_education",
+        "coverage_pct_800m_cultural",
+        "coverage_pct_800m_community_sport"
+      ],
+      "as": ["domain_field", "coverage_pct"]
+    },
+    {
+      "calculate": "datum.domain_field === 'coverage_pct_800m_health' ? 'Health' : datum.domain_field === 'coverage_pct_800m_education' ? 'Education' : datum.domain_field === 'coverage_pct_800m_cultural' ? 'Cultural' : 'Community / sport'",
+      "as": "facility_domain"
+    }
+  ],
+  "width": "container",
+  "height": 690,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "layer": [
+    {
+      "mark": {"type": "rect", "stroke": "#f7f5ef", "strokeWidth": 1},
+      "encoding": {
+        "x": {
+          "field": "facility_domain",
+          "type": "nominal",
+          "title": null,
+          "sort": ["Health", "Education", "Cultural", "Community / sport"],
+          "axis": {"labelAngle": 0, "labelLimit": 150}
+        },
+        "y": {
+          "field": "lga_name_2021",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "proximity_access_score_0_100", "order": "descending"},
+          "axis": {"labelLimit": 170}
+        },
+        "color": {
+          "field": "coverage_pct",
+          "type": "quantitative",
+          "title": "Coverage within 800m (%)",
+          "scale": {"domain": [0, 100], "scheme": "tealblues"},
+          "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 240}
+        },
+        "tooltip": [
+          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "facility_domain", "type": "nominal", "title": "Domain"},
+          {"field": "coverage_pct", "type": "quantitative", "title": "Coverage", "format": ".1f"},
+          {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall score", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 10, "fontWeight": 600},
+      "encoding": {
+        "x": {
+          "field": "facility_domain",
+          "type": "nominal",
+          "sort": ["Health", "Education", "Cultural", "Community / sport"]
+        },
+        "y": {
+          "field": "lga_name_2021",
+          "type": "nominal",
+          "sort": {"field": "proximity_access_score_0_100", "order": "descending"}
+        },
+        "text": {"field": "coverage_pct", "type": "quantitative", "format": ".0f"},
+        "color": {
+          "condition": {"test": "datum.coverage_pct >= 58", "value": "white"},
+          "value": "#173844"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {"stroke": null},
+    "font": "Segoe UI",
+    "axis": {"domain": false, "ticks": false, "labelColor": "#334b53", "labelFontSize": 11},
+    "legend": {"labelColor": "#334b53", "titleColor": "#152b35"}
+  }
+}

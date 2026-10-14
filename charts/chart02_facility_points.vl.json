@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive point map showing one facility category at a time.",
+  "width": "container",
+  "height": 420,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "projection": {"type": "mercator"},
+  "params": [
+    {
+      "name": "facilityChoice",
+      "value": "education",
+      "bind": {
+        "input": "select",
+        "name": "Facility category: ",
+        "options": ["education", "health", "cultural", "community_sport"],
+        "labels": ["Education", "Health", "Cultural", "Community / sport"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/lga_access.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "#edf0ec", "stroke": "#87979b", "strokeWidth": 0.65}
+    },
+    {
+      "data": {
+        "url": "data/facility_points.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "transform": [{"filter": "datum.properties.facility_category === facilityChoice"}],
+      "mark": {"type": "geoshape", "filled": true, "opacity": 0.78, "size": 32, "stroke": "white", "strokeWidth": 0.35},
+      "encoding": {
+        "color": {
+          "field": "properties.facility_category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["health", "education", "cultural", "community_sport"],
+            "range": ["#c8564f", "#d58a2d", "#7354a3", "#3f8c62"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "properties.facility_name", "type": "nominal", "title": "Facility"},
+          {"field": "properties.facility_type", "type": "nominal", "title": "Type"},
+          {"field": "properties.facility_subtype", "type": "nominal", "title": "Subtype"},
+          {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "view": {"stroke": null},
+    "font": "Segoe UI"
+  }
+}

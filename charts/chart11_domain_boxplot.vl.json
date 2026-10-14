@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Boxplots and individual LGA points comparing the distribution of coverage across four facility domains.",
+  "data": {"url": "data/lga_access.csv"},
+  "transform": [
+    {
+      "fold": [
+        "coverage_pct_800m_health",
+        "coverage_pct_800m_education",
+        "coverage_pct_800m_cultural",
+        "coverage_pct_800m_community_sport"
+      ],
+      "as": ["domain_key", "coverage_pct"]
+    },
+    {
+      "calculate": "datum.domain_key === 'coverage_pct_800m_health' ? 'Health' : datum.domain_key === 'coverage_pct_800m_education' ? 'Education' : datum.domain_key === 'coverage_pct_800m_cultural' ? 'Cultural' : 'Community / sport'",
+      "as": "domain"
+    }
+  ],
+  "width": 850,
+  "height": 430,
+  "layer": [
+    {
+      "mark": {"type": "boxplot", "extent": 1.5, "size": 70, "opacity": 0.78},
+      "encoding": {
+        "x": {"field": "domain", "type": "nominal", "title": null, "sort": ["Health", "Education", "Cultural", "Community / sport"]},
+        "y": {"field": "coverage_pct", "type": "quantitative", "title": "Population-weighted coverage within 800 m (%)", "scale": {"domain": [0, 100]}},
+        "color": {
+          "field": "domain",
+          "type": "nominal",
+          "scale": {"domain": ["Health", "Education", "Cultural", "Community / sport"], "range": ["#d56a62", "#dda844", "#6f62a6", "#4d9b74"]},
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 40, "opacity": 0.38, "stroke": "#fffdf8", "strokeWidth": 0.5},
+      "encoding": {
+        "x": {"field": "domain", "type": "nominal", "title": null, "sort": ["Health", "Education", "Cultural", "Community / sport"]},
+        "xOffset": {"field": "lga_name_2021", "type": "nominal"},
+        "y": {"field": "coverage_pct", "type": "quantitative", "title": "Population-weighted coverage within 800 m (%)"},
+        "color": {
+          "field": "domain",
+          "type": "nominal",
+          "scale": {"domain": ["Health", "Education", "Cultural", "Community / sport"], "range": ["#d56a62", "#dda844", "#6f62a6", "#4d9b74"]},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "domain", "type": "nominal", "title": "Domain"},
+          {"field": "coverage_pct", "type": "quantitative", "title": "Coverage", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "font": "Segoe UI",
+    "view": {"stroke": null},
+    "axis": {"domain": false, "gridColor": "#e1e3de", "labelColor": "#334b53", "titleColor": "#152b35"}
+  }
+}

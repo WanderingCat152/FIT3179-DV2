@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A proportional symbol map showing the percentage of dwellings without a motor vehicle in each LGA.",
+  "width": 820,
+  "height": 430,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
+      "mark": {"type": "geoshape", "fill": "#edf1ef", "stroke": "#9aa9a8", "strokeWidth": 0.7},
+      "encoding": {
+        "tooltip": [{"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"}]
+      }
+    },
+    {
+      "data": {"url": "data/lga_representative_points.json"},
+      "mark": {"type": "circle", "color": "#df7447", "opacity": 0.78, "stroke": "#fffdf8", "strokeWidth": 1},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "pct_dwellings_no_motor_vehicle",
+          "type": "quantitative",
+          "title": "Dwellings without a motor vehicle (%)",
+          "scale": {"domain": [0, 50], "range": [35, 1800]},
+          "legend": {"orient": "bottom", "direction": "horizontal", "values": [5, 15, 30, 45]}
+        },
+        "order": {"field": "pct_dwellings_no_motor_vehicle", "sort": "descending"},
+        "tooltip": [
+          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative", "title": "No-motor-vehicle dwellings", "format": ".1f"},
+          {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
+          {"field": "disadvantage_band", "type": "nominal", "title": "IRSD group"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "font": "Segoe UI",
+    "view": {"stroke": null},
+    "legend": {"labelColor": "#334b53", "titleColor": "#152b35", "titleLimit": 360}
+  }
+}

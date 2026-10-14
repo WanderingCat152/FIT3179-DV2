@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A data story about proximity to essential services across metropolitan Melbourne."
+    />
+    <title>Access Depends on Where You Live</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="page-nav" aria-label="Page sections">
+        <a class="brand" href="#top">Neighbourhood access</a>
+        <div class="nav-links">
+          <a href="#where">Where</a>
+          <a href="#what">Services</a>
+          <a href="#need">Need</a>
+          <a href="#ranking">Ranking</a>
+          <a href="#limits">Limits</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Metropolitan Melbourne · 31 local government areas</p>
+          <h1>Access depends on where you live</h1>
+          <p class="hero-lead">
+            How evenly is proximity to essential services distributed across Greater
+            Melbourne, and where does poor access overlap with greater community need?
+          </p>
+          <p class="definition">
+            An <strong>LGA</strong> is a local council area, similar to a municipal district.
+            This project compares 31 metropolitan LGAs using population-weighted proximity
+            to health, education, cultural, and community or sport facilities.
+          </p>
+        </div>
+
+        <dl class="hero-stats" aria-label="Study summary">
+          <div>
+            <dt>31</dt>
+            <dd>metropolitan LGAs</dd>
+          </div>
+          <div>
+            <dt>3,014</dt>
+            <dd>mapped facilities</dd>
+          </div>
+          <div>
+            <dt>20.1–83.4</dt>
+            <dd>observed access-score range</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <main>
+      <section class="story-section" id="where" aria-labelledby="where-title">
+        <div class="section-heading">
+          <p class="section-number">01</p>
+          <div>
+            <h2 id="where-title">Access depends on where you live</h2>
+            <p>
+              The overall score varies by more than 63 points across the study
+              area. The maps below establish that gap and show the facilities behind it.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-column-grid">
+          <article class="chart-card">
+            <div class="chart-heading">
+              <div>
+                <p class="chart-number">Chart 1</p>
+                <h3>Overall proximity access</h3>
+              </div>
+              <a href="charts/chart01_overall_access.vl.json">View JSON</a>
+            </div>
+            <p class="chart-intro">
+              The score is the equal-weight mean of the four facility-domain coverage
+              percentages. Hover over an LGA for its detailed values.
+            </p>
+            <div
+              id="chart-overall-access"
+              class="chart-host chart-host-map"
+              aria-label="Choropleth map of overall proximity access by LGA"
+            ></div>
+            <p class="chart-note">
+              <strong>Reading the map:</strong> darker areas indicate a larger estimated
+              population share living within 800 metres of nearby essential facilities.
+            </p>
+          </article>
+
+          <article class="chart-card">
+            <div class="chart-heading">
+              <div>
+                <p class="chart-number">Chart 2</p>
+                <h3>Where facilities are located</h3>
+              </div>
+              <a href="charts/chart02_facility_points.vl.json">View JSON</a>
+            </div>
+            <p class="chart-intro">
+              Select one facility category at a time. This avoids hiding the geographic
+              pattern beneath more than three thousand overlapping points.
+            </p>
+            <div
+              id="chart-facility-points"
+              class="chart-host chart-host-map"
+              aria-label="Interactive point map of facilities by category"
+            ></div>
+            <p class="chart-note">
+              Facility presence does not measure capacity, quality, opening hours, cost,
+              or eligibility.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="story-section section-tint" id="what" aria-labelledby="what-title">
+        <div class="section-heading">
+          <p class="section-number">02</p>
+          <div>
+            <h2 id="what-title">Accessible to what</h2>
+            <p>
+              A single average can conceal different service patterns. Education has a
+              median LGA coverage of 79.5%, while cultural facilities have a median of
+              15.9%.
+            </p>
+          </div>
+        </div>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 3</p>
+              <h3>Four facility domains</h3>
+            </div>
+            <a href="charts/chart03_domain_small_multiples.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            All four maps use the same 0–100 scale, making coverage levels directly
+            comparable across domains.
+          </p>
+          <div
+            id="chart-domain-maps"
+            class="chart-host chart-host-wide"
+            aria-label="Small multiple maps comparing coverage across four facility domains"
+          ></div>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 4</p>
+              <h3>Every LGA across every domain</h3>
+            </div>
+            <a href="charts/chart04_domain_heatmap.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            Rows are ordered by overall access score. Exact percentages are printed in
+            each cell and remain available in the tooltip.
+          </p>
+          <div
+            id="chart-domain-heatmap"
+            class="chart-host chart-host-heatmap"
+            aria-label="Heatmap comparing each LGA across four facility domains"
+          ></div>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 5</p>
+              <h3>The average can hide a 74-point service gap</h3>
+            </div>
+            <a href="charts/chart05_domain_gap.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            The line spans each LGA's weakest to strongest domain. The eight widest
+            gaps show where a reasonable overall score conceals a highly uneven service mix.
+          </p>
+          <div
+            id="chart-domain-gap"
+            class="chart-host chart-host-range"
+            aria-label="Range and dot plot of the eight largest within-LGA domain coverage gaps"
+          ></div>
+          <p class="chart-note">
+            <strong>Hobsons Bay and Darebin have the widest gaps.</strong> In both LGAs,
+            education coverage is high while health coverage is much lower.
+          </p>
+        </article>
+      </section>
+
+      <section class="story-section" id="need" aria-labelledby="need-title">
+        <div class="section-heading">
+          <p class="section-number">03</p>
+          <div>
+            <h2 id="need-title">When low access meets greater need</h2>
+            <p>
+              Access matters differently depending on community circumstances. IRSD and
+              households without a motor vehicle are shown as context, not folded into the
+              accessibility score and not treated as proof of causation.
+            </p>
+          </div>
+        </div>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 6</p>
+              <h3>Where living without a car is most common</h3>
+            </div>
+            <a href="charts/chart06_no_car_symbols.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            Circle area represents the share of dwellings without a motor vehicle. The
+            measure provides community context; it is not itself an accessibility score.
+          </p>
+          <div
+            id="chart-no-car-map"
+            class="chart-host chart-host-map-wide"
+            aria-label="Proportional symbol map of dwellings without a motor vehicle"
+          ></div>
+          <p class="chart-note">
+            Car-free households are concentrated in well-connected inner LGAs, especially
+            Melbourne and Yarra. Low car ownership therefore does not automatically mean low
+            facility proximity.
+          </p>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 7</p>
+              <h3>Four LGAs combine lower access with higher disadvantage</h3>
+            </div>
+            <a href="charts/chart07_bivariate_access_need.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            Both measures are split into metropolitan tertiles. Dark purple identifies the
+            combination of lower access and higher disadvantage; original values remain in
+            the tooltip.
+          </p>
+          <div
+            id="chart-bivariate-map"
+            class="chart-host chart-host-bivariate"
+            aria-label="Bivariate map combining access and IRSD disadvantage groups"
+          ></div>
+          <p class="chart-note">
+            <strong>Casey, Wyndham, Frankston and Brimbank</strong> fall in the lower-access,
+            higher-disadvantage group under these relative metropolitan thresholds.
+          </p>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 8</p>
+              <h3>Car-free living is usually associated with better access</h3>
+            </div>
+            <a href="charts/chart08_access_need_scatter.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            The shaded area marks lower access combined with an above-median no-car share.
+            Colour adds IRSD context, while the fitted line summarises the overall pattern.
+          </p>
+          <div
+            id="chart-access-need-scatter"
+            class="chart-host chart-host-scatter"
+            aria-label="Scatterplot comparing access with dwellings without a motor vehicle"
+          ></div>
+          <p class="chart-note">
+            Inner Melbourne's high no-car share drives a strong positive relationship between
+            car-free living and facility proximity. Brimbank is the clearest exception in the
+            shaded priority area.
+          </p>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 9 · Advanced idiom</p>
+              <h3>From disadvantage to access and the weakest service</h3>
+            </div>
+            <a href="charts/chart09_alluvial.vg.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            Ribbon width represents 2021 population. Follow the fixed flow from relative IRSD
+            disadvantage, through overall access, to each LGA's weakest facility domain.
+          </p>
+          <div
+            id="chart-alluvial"
+            class="chart-host chart-host-alluvial"
+            aria-label="Alluvial diagram connecting disadvantage, access and weakest facility domain"
+          ></div>
+          <p class="chart-note">
+            Cultural facilities are the weakest domain for LGAs containing 73.8% of the study
+            population. The flow also shows that disadvantage and low access overlap, but not
+            in every community.
+          </p>
+        </article>
+      </section>
+
+      <section class="story-section section-tint" id="ranking" aria-labelledby="ranking-title">
+        <div class="section-heading">
+          <p class="section-number">04</p>
+          <div>
+            <h2 id="ranking-title">Who is being left behind</h2>
+            <p>
+              A ranking removes the need to estimate values from a map. It makes the distance
+              between the strongest and weakest overall results explicit while retaining all
+              31 LGAs.
+            </p>
+          </div>
+        </div>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 10</p>
+              <h3>Overall access ranges from 20.1 to 83.4</h3>
+            </div>
+            <a href="charts/chart10_lga_ranking.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            LGAs are ordered by the equal-weight mean of the four coverage percentages.
+            Colours indicate lower, middle and higher metropolitan access tertiles.
+          </p>
+          <div
+            id="chart-lga-ranking"
+            class="chart-host chart-host-ranking"
+            aria-label="Lollipop ranking of all 31 LGAs by overall access score"
+          ></div>
+          <p class="chart-note">
+            Melbourne, Port Phillip and Yarra lead the ranking. Cardinia, Casey and Mornington
+            Peninsula record the lowest composite proximity scores.
+          </p>
+        </article>
+      </section>
+
+      <section class="story-section" id="limits" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="section-number">05</p>
+          <div>
+            <h2 id="limits-title">What the measure can and cannot say</h2>
+            <p>
+              The final comparison returns to the four domains, then separates the findings
+              supported by the data from claims this proximity measure cannot make.
+            </p>
+          </div>
+        </div>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <p class="chart-number">Chart 11 · Advanced idiom</p>
+              <h3>Education is consistently closer than cultural facilities</h3>
+            </div>
+            <a href="charts/chart11_domain_boxplot.vl.json">View JSON</a>
+          </div>
+          <p class="chart-intro">
+            Each box summarises the middle half of LGA results; individual points show the
+            underlying LGAs and remain available for inspection in the tooltip.
+          </p>
+          <div
+            id="chart-domain-boxplot"
+            class="chart-host chart-host-boxplot"
+            aria-label="Boxplots comparing LGA coverage distributions across facility domains"
+          ></div>
+          <p class="chart-note">
+            Median education coverage is 79.5%, compared with 15.9% for cultural facilities.
+            The difference is visible across most of the metropolitan distribution, not only
+            in one or two outlying LGAs.
+          </p>
+        </article>
+
+        <div class="interpretation-grid">
+          <article class="interpretation-card">
+            <p class="eyebrow">What the evidence supports</p>
+            <h3>Proximity is uneven and domain-specific</h3>
+            <ul>
+              <li>Overall access varies by more than 63 points across the 31 LGAs.</li>
+              <li>Education is generally the most geographically widespread domain.</li>
+              <li>Cultural or health facilities form the weakest domain in every LGA.</li>
+              <li>Some lower-access LGAs also face higher relative disadvantage.</li>
+            </ul>
+          </article>
+          <article class="interpretation-card limitation-card">
+            <p class="eyebrow">What it cannot establish</p>
+            <h3>Nearby does not necessarily mean usable</h3>
+            <ul>
+              <li>Straight-line distance is not a measured walking route or travel time.</li>
+              <li>Facility points do not describe capacity, quality, cost or opening hours.</li>
+              <li>LGA averages can conceal variation between neighbourhoods.</li>
+              <li>The mixed source years support a cross-sectional story, not historical change.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="method-panel" id="method" aria-labelledby="method-title">
+          <div>
+            <p class="eyebrow">How the measure works</p>
+            <h2 id="method-title">A transparent proximity estimate</h2>
+          </div>
+          <div class="method-grid">
+            <p>
+              Each SA1 is represented by an internal point. For each facility domain, the
+              analysis checks whether the nearest mapped facility is within 800 metres in a
+              straight line.
+            </p>
+            <p>
+              SA1 results are weighted by 2021 population and aggregated to LGA. The overall
+              score is the unweighted mean of the four domain percentages; it is not an
+              official government accessibility index.
+            </p>
+          </div>
+          <dl class="domain-key" aria-label="Facility domain mapping">
+            <div>
+              <dt>Health</dt>
+              <dd>Vicmap hospitals and health facilities</dd>
+            </div>
+            <div>
+              <dt>Education</dt>
+              <dd>Open campuses in Victorian School Locations 2025</dd>
+            </div>
+            <div>
+              <dt>Cultural</dt>
+              <dd>Vicmap cultural centres, including libraries, museums and galleries</dd>
+            </div>
+            <div>
+              <dt>Community / sport</dt>
+              <dd>Vicmap community venues and sport facilities</dd>
+            </div>
+          </dl>
+          <p class="threshold-note">
+            <strong>Relative group thresholds used in Charts 7–9:</strong> access tertiles at
+            36.278 and 47.606; IRSD score tertiles at 1018 and 1043. A lower IRSD score means
+            greater relative disadvantage.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <p class="footer-title">Access Depends on Where You Live</p>
+        <p>Chenxu · FIT3179 Data Visualisation 2 · 2026</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.abs.gov.au/census/find-census-data/datapacks">ABS 2021 Census</a>
+        <a href="https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/latest-release">ABS SEIFA 2021</a>
+        <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">ABS boundaries</a>
+        <a href="https://discover.data.vic.gov.au/dataset/school-locations-2025">School Locations 2025</a>
+        <a href="https://discover.data.vic.gov.au/dataset/vicmap-features-of-interest-rest-api">Vicmap Features of Interest</a>
+        <a href="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/20-minute-neighbourhoods">800 m planning context</a>
+        <a href="#method">Method summary</a>
+      </div>
+      <p class="footer-note">
+        Based on Australian Bureau of Statistics data. Additional data: Victorian School
+        Locations 2025 and Vicmap Features of Interest. Generative AI assisted planning
+        and development; analytical decisions and final interpretation remain the author's
+        responsibility.
+      </p>
+    </footer>
+
+    <noscript>This page requires JavaScript to display the Vega-Lite charts.</noscript>
+    <script src="js/main.js"></script>
+  </body>
+</html>

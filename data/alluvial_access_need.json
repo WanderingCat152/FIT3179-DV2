@@ -1,0 +1,277 @@
+{
+  "metadata": {
+    "total_population": 4841594,
+    "access_thresholds": [
+      36.278,
+      47.606
+    ],
+    "irsd_thresholds": [
+      1018.0,
+      1043.0
+    ]
+  },
+  "stages": [
+    {
+      "x": 70,
+      "label": "IRSD disadvantage"
+    },
+    {
+      "x": 441,
+      "label": "Overall access"
+    },
+    {
+      "x": 812,
+      "label": "Weakest domain"
+    }
+  ],
+  "nodes": [
+    {
+      "stage": 0,
+      "category": "Higher disadvantage",
+      "x": 70.0,
+      "x2": 88.0,
+      "y": 54.0,
+      "y2": 182.547,
+      "value": 2191446,
+      "share_pct": 45.3,
+      "lga_count": 11,
+      "color": "#8f365a"
+    },
+    {
+      "stage": 0,
+      "category": "Middle disadvantage",
+      "x": 70.0,
+      "x2": 88.0,
+      "y": 200.547,
+      "y2": 286.289,
+      "value": 1461721,
+      "share_pct": 30.2,
+      "lga_count": 10,
+      "color": "#a67d95"
+    },
+    {
+      "stage": 0,
+      "category": "Lower disadvantage",
+      "x": 70.0,
+      "x2": 88.0,
+      "y": 304.289,
+      "y2": 374.0,
+      "value": 1188427,
+      "share_pct": 24.5,
+      "lga_count": 10,
+      "color": "#75a5a1"
+    },
+    {
+      "stage": 1,
+      "category": "Lower access",
+      "x": 441.0,
+      "x2": 459.0,
+      "y": 54.0,
+      "y2": 165.363,
+      "value": 1898509,
+      "share_pct": 39.2,
+      "lga_count": 11,
+      "color": "#c7614f"
+    },
+    {
+      "stage": 1,
+      "category": "Middle access",
+      "x": 441.0,
+      "x2": 459.0,
+      "y": 183.363,
+      "y2": 283.105,
+      "value": 1700390,
+      "share_pct": 35.1,
+      "lga_count": 10,
+      "color": "#8b8f8c"
+    },
+    {
+      "stage": 1,
+      "category": "Higher access",
+      "x": 441.0,
+      "x2": 459.0,
+      "y": 301.105,
+      "y2": 373.999,
+      "value": 1242695,
+      "share_pct": 25.7,
+      "lga_count": 10,
+      "color": "#2f766f"
+    },
+    {
+      "stage": 2,
+      "category": "Cultural",
+      "x": 812.0,
+      "x2": 830.0,
+      "y": 63.0,
+      "y2": 272.516,
+      "value": 3571799,
+      "share_pct": 73.8,
+      "lga_count": 23,
+      "color": "#6f62a6"
+    },
+    {
+      "stage": 2,
+      "category": "Health",
+      "x": 812.0,
+      "x2": 830.0,
+      "y": 290.516,
+      "y2": 365.0,
+      "value": 1269795,
+      "share_pct": 26.2,
+      "lga_count": 8,
+      "color": "#d56a62"
+    }
+  ],
+  "links": [
+    {
+      "source_stage": 0,
+      "source": "Higher disadvantage",
+      "target": "Lower access",
+      "path": "M88.000,54.000 C264.500,54.000 264.500,54.000 441.000,54.000 L441.000,112.154 C264.500,112.154 264.500,112.154 88.000,112.154 Z",
+      "value": 991406,
+      "share_pct": 20.5,
+      "lga_count": 4,
+      "color": "#8f365a"
+    },
+    {
+      "source_stage": 0,
+      "source": "Higher disadvantage",
+      "target": "Middle access",
+      "path": "M88.000,112.154 C264.500,112.154 264.500,183.363 441.000,183.363 L441.000,239.981 C264.500,239.981 264.500,168.772 88.000,168.772 Z",
+      "value": 965210,
+      "share_pct": 19.9,
+      "lga_count": 5,
+      "color": "#8f365a"
+    },
+    {
+      "source_stage": 0,
+      "source": "Higher disadvantage",
+      "target": "Higher access",
+      "path": "M88.000,168.772 C264.500,168.772 264.500,301.105 441.000,301.105 L441.000,314.880 C264.500,314.880 264.500,182.547 88.000,182.547 Z",
+      "value": 234830,
+      "share_pct": 4.9,
+      "lga_count": 2,
+      "color": "#8f365a"
+    },
+    {
+      "source_stage": 0,
+      "source": "Middle disadvantage",
+      "target": "Lower access",
+      "path": "M88.000,200.547 C264.500,200.547 264.500,112.154 441.000,112.154 L441.000,154.254 C264.500,154.254 264.500,242.647 88.000,242.647 Z",
+      "value": 717717,
+      "share_pct": 14.8,
+      "lga_count": 5,
+      "color": "#a67d95"
+    },
+    {
+      "source_stage": 0,
+      "source": "Middle disadvantage",
+      "target": "Middle access",
+      "path": "M88.000,242.647 C264.500,242.647 264.500,239.981 441.000,239.981 L441.000,266.423 C264.500,266.423 264.500,269.090 88.000,269.090 Z",
+      "value": 450791,
+      "share_pct": 9.3,
+      "lga_count": 3,
+      "color": "#a67d95"
+    },
+    {
+      "source_stage": 0,
+      "source": "Middle disadvantage",
+      "target": "Higher access",
+      "path": "M88.000,269.090 C264.500,269.090 264.500,314.880 441.000,314.880 L441.000,332.079 C264.500,332.079 264.500,286.289 88.000,286.289 Z",
+      "value": 293213,
+      "share_pct": 6.1,
+      "lga_count": 2,
+      "color": "#a67d95"
+    },
+    {
+      "source_stage": 0,
+      "source": "Lower disadvantage",
+      "target": "Lower access",
+      "path": "M88.000,304.289 C264.500,304.289 264.500,154.254 441.000,154.254 L441.000,165.363 C264.500,165.363 264.500,315.398 88.000,315.398 Z",
+      "value": 189386,
+      "share_pct": 3.9,
+      "lga_count": 2,
+      "color": "#75a5a1"
+    },
+    {
+      "source_stage": 0,
+      "source": "Lower disadvantage",
+      "target": "Middle access",
+      "path": "M88.000,315.398 C264.500,315.398 264.500,266.423 441.000,266.423 L441.000,283.105 C264.500,283.105 264.500,332.080 88.000,332.080 Z",
+      "value": 284389,
+      "share_pct": 5.9,
+      "lga_count": 2,
+      "color": "#75a5a1"
+    },
+    {
+      "source_stage": 0,
+      "source": "Lower disadvantage",
+      "target": "Higher access",
+      "path": "M88.000,332.080 C264.500,332.080 264.500,332.079 441.000,332.079 L441.000,373.999 C264.500,373.999 264.500,374.000 88.000,374.000 Z",
+      "value": 714652,
+      "share_pct": 14.8,
+      "lga_count": 6,
+      "color": "#75a5a1"
+    },
+    {
+      "source_stage": 1,
+      "source": "Lower access",
+      "target": "Cultural",
+      "path": "M459.000,54.000 C635.500,54.000 635.500,63.000 812.000,63.000 L812.000,146.000 C635.500,146.000 635.500,137.000 459.000,137.000 Z",
+      "value": 1414973,
+      "share_pct": 29.2,
+      "lga_count": 9,
+      "color": "#c7614f"
+    },
+    {
+      "source_stage": 1,
+      "source": "Lower access",
+      "target": "Health",
+      "path": "M459.000,137.000 C635.500,137.000 635.500,290.516 812.000,290.516 L812.000,318.879 C635.500,318.879 635.500,165.363 459.000,165.363 Z",
+      "value": 483536,
+      "share_pct": 10.0,
+      "lga_count": 2,
+      "color": "#c7614f"
+    },
+    {
+      "source_stage": 1,
+      "source": "Middle access",
+      "target": "Cultural",
+      "path": "M459.000,183.363 C635.500,183.363 635.500,146.000 812.000,146.000 L812.000,222.416 C635.500,222.416 635.500,259.779 459.000,259.779 Z",
+      "value": 1302736,
+      "share_pct": 26.9,
+      "lga_count": 7,
+      "color": "#8b8f8c"
+    },
+    {
+      "source_stage": 1,
+      "source": "Middle access",
+      "target": "Health",
+      "path": "M459.000,259.779 C635.500,259.779 635.500,318.879 812.000,318.879 L812.000,342.205 C635.500,342.205 635.500,283.105 459.000,283.105 Z",
+      "value": 397654,
+      "share_pct": 8.2,
+      "lga_count": 3,
+      "color": "#8b8f8c"
+    },
+    {
+      "source_stage": 1,
+      "source": "Higher access",
+      "target": "Cultural",
+      "path": "M459.000,301.105 C635.500,301.105 635.500,222.416 812.000,222.416 L812.000,272.516 C635.500,272.516 635.500,351.205 459.000,351.205 Z",
+      "value": 854090,
+      "share_pct": 17.6,
+      "lga_count": 7,
+      "color": "#2f766f"
+    },
+    {
+      "source_stage": 1,
+      "source": "Higher access",
+      "target": "Health",
+      "path": "M459.000,351.205 C635.500,351.205 635.500,342.205 812.000,342.205 L812.000,365.000 C635.500,365.000 635.500,373.999 459.000,373.999 Z",
+      "value": 388605,
+      "share_pct": 8.0,
+      "lga_count": 3,
+      "color": "#2f766f"
+    }
+  ]
+}

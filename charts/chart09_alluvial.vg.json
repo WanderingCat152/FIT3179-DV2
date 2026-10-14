@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Alluvial flow from IRSD disadvantage group to overall access group and weakest facility domain, weighted by 2021 population.",
+  "width": 900,
+  "height": 430,
+  "padding": 8,
+  "autosize": "pad",
+  "data": [
+    {"name": "links", "url": "data/alluvial_access_need.json", "format": {"type": "json", "property": "links"}},
+    {"name": "nodes", "url": "data/alluvial_access_need.json", "format": {"type": "json", "property": "nodes"}},
+    {"name": "stages", "url": "data/alluvial_access_need.json", "format": {"type": "json", "property": "stages"}}
+  ],
+  "scales": [
+    {
+      "name": "linkOpacity",
+      "type": "linear",
+      "domain": {"data": "links", "field": "value"},
+      "range": [0.38, 0.72],
+      "zero": false
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "links"},
+      "encode": {
+        "enter": {
+          "path": {"field": "path"},
+          "fill": {"field": "color"},
+          "stroke": {"field": "color"},
+          "strokeWidth": {"value": 0.4},
+          "tooltip": {
+            "signal": "datum.source + ' → ' + datum.target + ': ' + format(datum.value, ',') + ' residents (' + format(datum.share_pct, '.1f') + '%), ' + datum.lga_count + ' LGAs'"
+          }
+        },
+        "update": {"fillOpacity": {"scale": "linkOpacity", "field": "value"}},
+        "hover": {"fillOpacity": {"value": 0.9}}
+      }
+    },
+    {
+      "type": "rect",
+      "from": {"data": "nodes"},
+      "encode": {
+        "enter": {
+          "x": {"field": "x"},
+          "x2": {"field": "x2"},
+          "y": {"field": "y"},
+          "y2": {"field": "y2"},
+          "fill": {"field": "color"},
+          "stroke": {"value": "#fffdf8"},
+          "strokeWidth": {"value": 1},
+          "cornerRadius": {"value": 2},
+          "tooltip": {
+            "signal": "datum.category + ': ' + format(datum.value, ',') + ' residents (' + format(datum.share_pct, '.1f') + '%), ' + datum.lga_count + ' LGAs'"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "stages"},
+      "encode": {
+        "enter": {
+          "x": {"field": "x"},
+          "y": {"value": 18},
+          "text": {"field": "label"},
+          "font": {"value": "Segoe UI"},
+          "fontSize": {"value": 14},
+          "fontWeight": {"value": 700},
+          "fill": {"value": "#152b35"},
+          "align": {"value": "left"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "encode": {
+        "enter": {
+          "x": {"signal": "datum.stage === 2 ? datum.x2 + 8 : datum.x - 8"},
+          "y": {"signal": "(datum.y + datum.y2) / 2 - 5"},
+          "text": {"field": "category"},
+          "font": {"value": "Segoe UI"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": 600},
+          "fill": {"value": "#152b35"},
+          "align": {"signal": "datum.stage === 2 ? 'left' : 'right'"},
+          "baseline": {"value": "bottom"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "nodes"},
+      "encode": {
+        "enter": {
+          "x": {"signal": "datum.stage === 2 ? datum.x2 + 8 : datum.x - 8"},
+          "y": {"signal": "(datum.y + datum.y2) / 2 + 5"},
+          "text": {"signal": "format(datum.share_pct, '.1f') + '%'"},
+          "font": {"value": "Segoe UI"},
+          "fontSize": {"value": 10},
+          "fill": {"value": "#5f7077"},
+          "align": {"signal": "datum.stage === 2 ? 'left' : 'right'"},
+          "baseline": {"value": "top"}
+        }
+      }
+    }
+  ],
+  "config": {"background": null}
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A bivariate choropleth combining overall access tertiles with IRSD disadvantage tertiles.",
+  "hconcat": [
+    {
+      "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
+      "transform": [
+        {"calculate": "datum.properties.proximity_access_score_0_100 <= 36.278 ? 'Lower access' : datum.properties.proximity_access_score_0_100 <= 47.606 ? 'Middle access' : 'Higher access'", "as": "access_class"},
+        {"calculate": "datum.properties.irsd_score <= 1018 ? 'Higher disadvantage' : datum.properties.irsd_score <= 1043 ? 'Middle disadvantage' : 'Lower disadvantage'", "as": "disadvantage_class"},
+        {"calculate": "datum.access_class + ' | ' + datum.disadvantage_class", "as": "bivariate_class"}
+      ],
+      "width": 710,
+      "height": 440,
+      "projection": {"type": "mercator"},
+      "mark": {"type": "geoshape", "stroke": "#fffdf8", "strokeWidth": 0.8},
+      "encoding": {
+        "color": {
+          "field": "bivariate_class",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Lower access | Higher disadvantage",
+              "Middle access | Higher disadvantage",
+              "Higher access | Higher disadvantage",
+              "Lower access | Middle disadvantage",
+              "Middle access | Middle disadvantage",
+              "Higher access | Middle disadvantage",
+              "Lower access | Lower disadvantage",
+              "Middle access | Lower disadvantage",
+              "Higher access | Lower disadvantage"
+            ],
+            "range": ["#8f365a", "#a35f70", "#b9858d", "#a87591", "#8b8f8c", "#6f9a96", "#c9b7c7", "#9fb8b5", "#4f8f88"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "properties.proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
+          {"field": "access_class", "type": "nominal", "title": "Access group"},
+          {"field": "properties.irsd_score", "type": "quantitative", "title": "IRSD score", "format": ".0f"},
+          {"field": "disadvantage_class", "type": "nominal", "title": "Disadvantage group"},
+          {"field": "properties.pct_dwellings_no_motor_vehicle", "type": "quantitative", "title": "No-motor-vehicle dwellings", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "title": {"text": "Bivariate key", "anchor": "middle", "fontSize": 14},
+      "data": {
+        "values": [
+          {"access": "Lower", "disadvantage": "Higher", "class": "Lower access | Higher disadvantage"},
+          {"access": "Middle", "disadvantage": "Higher", "class": "Middle access | Higher disadvantage"},
+          {"access": "Higher", "disadvantage": "Higher", "class": "Higher access | Higher disadvantage"},
+          {"access": "Lower", "disadvantage": "Middle", "class": "Lower access | Middle disadvantage"},
+          {"access": "Middle", "disadvantage": "Middle", "class": "Middle access | Middle disadvantage"},
+          {"access": "Higher", "disadvantage": "Middle", "class": "Higher access | Middle disadvantage"},
+          {"access": "Lower", "disadvantage": "Lower", "class": "Lower access | Lower disadvantage"},
+          {"access": "Middle", "disadvantage": "Lower", "class": "Middle access | Lower disadvantage"},
+          {"access": "Higher", "disadvantage": "Lower", "class": "Higher access | Lower disadvantage"}
+        ]
+      },
+      "width": 185,
+      "height": 185,
+      "mark": {"type": "rect", "stroke": "#fffdf8", "strokeWidth": 1.5},
+      "encoding": {
+        "x": {"field": "access", "type": "ordinal", "sort": ["Lower", "Middle", "Higher"], "title": "Overall access →", "axis": {"labelAngle": 0}},
+        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": "IRSD disadvantage"},
+        "color": {
+          "field": "class",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Lower access | Higher disadvantage",
+              "Middle access | Higher disadvantage",
+              "Higher access | Higher disadvantage",
+              "Lower access | Middle disadvantage",
+              "Middle access | Middle disadvantage",
+              "Higher access | Middle disadvantage",
+              "Lower access | Lower disadvantage",
+              "Middle access | Lower disadvantage",
+              "Higher access | Lower disadvantage"
+            ],
+            "range": ["#8f365a", "#a35f70", "#b9858d", "#a87591", "#8b8f8c", "#6f9a96", "#c9b7c7", "#9fb8b5", "#4f8f88"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "access", "type": "nominal", "title": "Access"},
+          {"field": "disadvantage", "type": "nominal", "title": "Disadvantage"}
+        ]
+      }
+    }
+  ],
+  "spacing": 28,
+  "resolve": {"scale": {"color": "independent"}, "legend": {"color": "independent"}},
+  "config": {
+    "background": null,
+    "font": "Segoe UI",
+    "view": {"stroke": null},
+    "axis": {"domain": false, "ticks": false, "labelColor": "#334b53", "titleColor": "#152b35"}
+  }
+}

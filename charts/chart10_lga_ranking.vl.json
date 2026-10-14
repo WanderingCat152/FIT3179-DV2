@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop ranking of all 31 metropolitan Melbourne LGAs by overall proximity access score.",
+  "data": {"url": "data/lga_access.csv"},
+  "transform": [{"calculate": "0", "as": "zero"}],
+  "width": 850,
+  "height": 680,
+  "layer": [
+    {
+      "mark": {"type": "rule", "stroke": "#a9b7b8", "strokeWidth": 1.8},
+      "encoding": {
+        "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
+        "x": {"field": "zero", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall proximity access score"},
+        "x2": {"field": "proximity_access_score_0_100"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 105, "stroke": "#fffdf8", "strokeWidth": 1},
+      "encoding": {
+        "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
+        "x": {"field": "proximity_access_score_0_100", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall proximity access score"},
+        "color": {
+          "condition": [
+            {"test": "datum.proximity_access_score_0_100 <= 36.278", "value": "#c7614f"},
+            {"test": "datum.proximity_access_score_0_100 <= 47.606", "value": "#8b8f8c"}
+          ],
+          "value": "#2f766f"
+        },
+        "tooltip": [
+          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
+          {"field": "coverage_pct_800m_health", "type": "quantitative", "title": "Health", "format": ".1f"},
+          {"field": "coverage_pct_800m_education", "type": "quantitative", "title": "Education", "format": ".1f"},
+          {"field": "coverage_pct_800m_cultural", "type": "quantitative", "title": "Cultural", "format": ".1f"},
+          {"field": "coverage_pct_800m_community_sport", "type": "quantitative", "title": "Community/sport", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 9, "fontSize": 11, "fontWeight": 600, "color": "#334b53"},
+      "encoding": {
+        "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
+        "x": {"field": "proximity_access_score_0_100", "type": "quantitative"},
+        "text": {"field": "proximity_access_score_0_100", "type": "quantitative", "format": ".1f"}
+      }
+    }
+  ],
+  "config": {
+    "background": null,
+    "font": "Segoe UI",
+    "view": {"stroke": null},
+    "axis": {"domain": false, "gridColor": "#e1e3de", "labelColor": "#334b53", "labelFontSize": 11, "titleColor": "#152b35"}
+  }
+}

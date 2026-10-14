@@ -1,0 +1,312 @@
+[
+  {
+    "lga_name_2021": "Banyule",
+    "longitude": 145.087245,
+    "latitude": -37.733602,
+    "pct_dwellings_no_motor_vehicle": 5.876,
+    "proximity_access_score_0_100": 43.05,
+    "irsd_score": 1058.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Bayside (Vic.)",
+    "longitude": 145.017633,
+    "latitude": -37.939219,
+    "pct_dwellings_no_motor_vehicle": 5.042,
+    "proximity_access_score_0_100": 53.651,
+    "irsd_score": 1090.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Boroondara",
+    "longitude": 145.061231,
+    "latitude": -37.827135,
+    "pct_dwellings_no_motor_vehicle": 7.334,
+    "proximity_access_score_0_100": 53.405,
+    "irsd_score": 1090.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Brimbank",
+    "longitude": 144.805521,
+    "latitude": -37.742749,
+    "pct_dwellings_no_motor_vehicle": 7.121,
+    "proximity_access_score_0_100": 35.453,
+    "irsd_score": 912.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Cardinia",
+    "longitude": 145.567732,
+    "latitude": -38.095376,
+    "pct_dwellings_no_motor_vehicle": 2.572,
+    "proximity_access_score_0_100": 20.136,
+    "irsd_score": 1021.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Casey",
+    "longitude": 145.313526,
+    "latitude": -38.095376,
+    "pct_dwellings_no_motor_vehicle": 2.98,
+    "proximity_access_score_0_100": 25.266,
+    "irsd_score": 995.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Darebin",
+    "longitude": 145.00688,
+    "latitude": -37.739563,
+    "pct_dwellings_no_motor_vehicle": 12.415,
+    "proximity_access_score_0_100": 45.812,
+    "irsd_score": 1018.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Frankston",
+    "longitude": 145.174013,
+    "latitude": -38.136866,
+    "pct_dwellings_no_motor_vehicle": 5.803,
+    "proximity_access_score_0_100": 35.252,
+    "irsd_score": 1003.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Glen Eira",
+    "longitude": 145.041033,
+    "latitude": -37.898984,
+    "pct_dwellings_no_motor_vehicle": 8.693,
+    "proximity_access_score_0_100": 54.995,
+    "irsd_score": 1075.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Greater Dandenong",
+    "longitude": 145.191008,
+    "latitude": -38.00219,
+    "pct_dwellings_no_motor_vehicle": 8.26,
+    "proximity_access_score_0_100": 40.269,
+    "irsd_score": 887.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Hobsons Bay",
+    "longitude": 144.836574,
+    "latitude": -37.856473,
+    "pct_dwellings_no_motor_vehicle": 7.323,
+    "proximity_access_score_0_100": 46.888,
+    "irsd_score": 1021.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Hume",
+    "longitude": 144.823585,
+    "latitude": -37.597045,
+    "pct_dwellings_no_motor_vehicle": 4.508,
+    "proximity_access_score_0_100": 37.762,
+    "irsd_score": 941.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Kingston (Vic.)",
+    "longitude": 145.109567,
+    "latitude": -38.001573,
+    "pct_dwellings_no_motor_vehicle": 6.223,
+    "proximity_access_score_0_100": 47.606,
+    "irsd_score": 1044.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Knox",
+    "longitude": 145.265723,
+    "latitude": -37.898853,
+    "pct_dwellings_no_motor_vehicle": 3.801,
+    "proximity_access_score_0_100": 35.175,
+    "irsd_score": 1042.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Manningham",
+    "longitude": 145.185402,
+    "latitude": -37.757496,
+    "pct_dwellings_no_motor_vehicle": 4.373,
+    "proximity_access_score_0_100": 36.278,
+    "irsd_score": 1056.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Maribyrnong",
+    "longitude": 144.874347,
+    "latitude": -37.791309,
+    "pct_dwellings_no_motor_vehicle": 12.567,
+    "proximity_access_score_0_100": 65.751,
+    "irsd_score": 1010.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Maroondah",
+    "longitude": 145.261242,
+    "latitude": -37.803821,
+    "pct_dwellings_no_motor_vehicle": 4.768,
+    "proximity_access_score_0_100": 30.358,
+    "irsd_score": 1041.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Melbourne",
+    "longitude": 144.948065,
+    "latitude": -37.814018,
+    "pct_dwellings_no_motor_vehicle": 46.067,
+    "proximity_access_score_0_100": 83.355,
+    "irsd_score": 1017.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Melton",
+    "longitude": 144.635973,
+    "latitude": -37.68272,
+    "pct_dwellings_no_motor_vehicle": 3.204,
+    "proximity_access_score_0_100": 38.215,
+    "irsd_score": 985.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Monash",
+    "longitude": 145.141636,
+    "latitude": -37.897604,
+    "pct_dwellings_no_motor_vehicle": 7.173,
+    "proximity_access_score_0_100": 42.311,
+    "irsd_score": 1042.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Moonee Valley",
+    "longitude": 144.887541,
+    "latitude": -37.749768,
+    "pct_dwellings_no_motor_vehicle": 9.847,
+    "proximity_access_score_0_100": 58.888,
+    "irsd_score": 1041.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Moreland",
+    "longitude": 144.955709,
+    "latitude": -37.735282,
+    "pct_dwellings_no_motor_vehicle": 13.116,
+    "proximity_access_score_0_100": 54.133,
+    "irsd_score": 1027.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Mornington Peninsula",
+    "longitude": 145.081979,
+    "latitude": -38.331137,
+    "pct_dwellings_no_motor_vehicle": 3.65,
+    "proximity_access_score_0_100": 27.436,
+    "irsd_score": 1038.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Nillumbik",
+    "longitude": 145.245558,
+    "latitude": -37.614618,
+    "pct_dwellings_no_motor_vehicle": 1.715,
+    "proximity_access_score_0_100": 31.082,
+    "irsd_score": 1093.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Port Phillip",
+    "longitude": 144.982694,
+    "latitude": -37.858592,
+    "pct_dwellings_no_motor_vehicle": 18.107,
+    "proximity_access_score_0_100": 81.973,
+    "irsd_score": 1061.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Stonnington",
+    "longitude": 145.038968,
+    "latitude": -37.861158,
+    "pct_dwellings_no_motor_vehicle": 16.7,
+    "proximity_access_score_0_100": 61.13,
+    "irsd_score": 1084.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Whitehorse",
+    "longitude": 145.15601,
+    "latitude": -37.833622,
+    "pct_dwellings_no_motor_vehicle": 8.28,
+    "proximity_access_score_0_100": 44.387,
+    "irsd_score": 1043.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Middle disadvantage"
+  },
+  {
+    "lga_name_2021": "Whittlesea",
+    "longitude": 145.062173,
+    "latitude": -37.550923,
+    "pct_dwellings_no_motor_vehicle": 4.279,
+    "proximity_access_score_0_100": 41.314,
+    "irsd_score": 990.0,
+    "access_band": "Middle access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Wyndham",
+    "longitude": 144.629751,
+    "latitude": -37.89323,
+    "pct_dwellings_no_motor_vehicle": 3.689,
+    "proximity_access_score_0_100": 33.295,
+    "irsd_score": 1006.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Higher disadvantage"
+  },
+  {
+    "lga_name_2021": "Yarra",
+    "longitude": 144.986726,
+    "latitude": -37.804802,
+    "pct_dwellings_no_motor_vehicle": 20.281,
+    "proximity_access_score_0_100": 74.535,
+    "irsd_score": 1046.0,
+    "access_band": "Higher access",
+    "disadvantage_band": "Lower disadvantage"
+  },
+  {
+    "lga_name_2021": "Yarra Ranges",
+    "longitude": 145.723815,
+    "latitude": -37.749093,
+    "pct_dwellings_no_motor_vehicle": 2.863,
+    "proximity_access_score_0_100": 31.847,
+    "irsd_score": 1041.0,
+    "access_band": "Lower access",
+    "disadvantage_band": "Middle disadvantage"
+  }
+]
