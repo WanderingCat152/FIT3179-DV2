@@ -38,7 +38,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["health", "education", "cultural", "community_sport"],
-            "range": ["#c8564f", "#d58a2d", "#7354a3", "#3f8c62"]
+            "range": ["#0072B2", "#E69F00", "#CC79A7", "#009E73"]
           },
           "legend": null
         },

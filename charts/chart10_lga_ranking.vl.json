@@ -15,17 +15,10 @@
       }
     },
     {
-      "mark": {"type": "point", "filled": true, "size": 105, "stroke": "#fffdf8", "strokeWidth": 1},
+      "mark": {"type": "point", "filled": true, "size": 105, "color": "#2f766f", "stroke": "#fffdf8", "strokeWidth": 1},
       "encoding": {
         "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
         "x": {"field": "proximity_access_score_0_100", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall proximity access score"},
-        "color": {
-          "condition": [
-            {"test": "datum.proximity_access_score_0_100 <= 36.278", "value": "#c7614f"},
-            {"test": "datum.proximity_access_score_0_100 <= 47.606", "value": "#8b8f8c"}
-          ],
-          "value": "#2f766f"
-        },
         "tooltip": [
           {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
           {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},

@@ -14,7 +14,7 @@
     },
     {
       "data": {"url": "data/lga_representative_points.json"},
-      "mark": {"type": "circle", "color": "#df7447", "opacity": 0.78, "stroke": "#fffdf8", "strokeWidth": 1},
+      "mark": {"type": "circle", "color": "#df7447", "opacity": 0.74, "stroke": "#fffdf8", "strokeWidth": 1},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
@@ -22,7 +22,7 @@
           "field": "pct_dwellings_no_motor_vehicle",
           "type": "quantitative",
           "title": "Dwellings without a motor vehicle (%)",
-          "scale": {"domain": [0, 50], "range": [35, 1800]},
+          "scale": {"type": "sqrt", "domain": [0, 50], "range": [30, 950]},
           "legend": {"orient": "bottom", "direction": "horizontal", "values": [5, 15, 30, 45]}
         },
         "order": {"field": "pct_dwellings_no_motor_vehicle", "sort": "descending"},

@@ -76,7 +76,7 @@
           "title": "Facility domain",
           "scale": {
             "domain": ["Health", "Education", "Cultural", "Community / sport"],
-            "range": ["#d56a62", "#dda844", "#6f62a6", "#4d9b74"]
+            "range": ["#0072B2", "#E69F00", "#CC79A7", "#009E73"]
           },
           "legend": {"orient": "bottom", "direction": "horizontal", "columns": 4}
         },

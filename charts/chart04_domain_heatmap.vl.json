@@ -42,7 +42,10 @@
           "field": "coverage_pct",
           "type": "quantitative",
           "title": "Coverage within 800m (%)",
-          "scale": {"domain": [0, 100], "scheme": "tealblues"},
+          "scale": {
+            "domain": [0, 100],
+            "range": ["#f4f4e8", "#c8dfd8", "#78b8b0", "#2e7c8c", "#173f5f"]
+          },
           "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 240}
         },
         "tooltip": [
@@ -54,7 +57,8 @@
       }
     },
     {
-      "mark": {"type": "text", "fontSize": 10, "fontWeight": 600},
+      "transform": [{"filter": "datum.coverage_pct <= 10 || datum.coverage_pct >= 90"}],
+      "mark": {"type": "text", "fontSize": 10, "fontWeight": 700},
       "encoding": {
         "x": {
           "field": "facility_domain",
@@ -68,7 +72,7 @@
         },
         "text": {"field": "coverage_pct", "type": "quantitative", "format": ".0f"},
         "color": {
-          "condition": {"test": "datum.coverage_pct >= 58", "value": "white"},
+          "condition": {"test": "datum.coverage_pct >= 90", "value": "white"},
           "value": "#173844"
         }
       }

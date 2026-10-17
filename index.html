@@ -60,7 +60,8 @@
             </div>
             <p class="chart-intro">
               The score is the equal-weight mean of the four facility-domain coverage
-              percentages. Hover over an LGA for its detailed values.
+              percentages. Melbourne and Cardinia are labelled as the highest and lowest
+              results; hover over any LGA for its detailed values.
             </p>
             <div
               id="chart-overall-access"
@@ -136,8 +137,8 @@
             </div>
           </div>
           <p class="chart-intro">
-            Rows are ordered by overall access score. Exact percentages are printed in
-            each cell and remain available in the tooltip.
+            Rows are ordered by overall access score. Labels mark only values at or below
+            10% and at or above 90%; every exact percentage remains in the tooltip.
           </p>
           <div
             id="chart-domain-heatmap"
@@ -191,7 +192,8 @@
           </div>
           <p class="chart-intro">
             Circle area represents the share of dwellings without a motor vehicle. The
-            measure provides community context; it is not itself an accessibility score.
+            size scale is deliberately restrained to preserve LGA boundaries. The measure
+            provides community context; it is not itself an accessibility score.
           </p>
           <div
             id="chart-no-car-map"
@@ -259,8 +261,9 @@
             </div>
           </div>
           <p class="chart-intro">
-            Ribbon width represents 2021 population. Follow the fixed flow from relative IRSD
-            disadvantage, through overall access, to each LGA's weakest facility domain.
+            Read from left to right: the flow starts with relative IRSD disadvantage, passes
+            through overall access, and ends at each LGA's weakest facility domain. Ribbon
+            width represents 2021 population.
           </p>
           <div
             id="chart-alluvial"
@@ -297,7 +300,8 @@
           </div>
           <p class="chart-intro">
             LGAs are ordered by the equal-weight mean of the four coverage percentages.
-            Colours indicate lower, middle and higher metropolitan access tertiles.
+            Line length encodes the score and the text label reports its exact value; a
+            single point colour avoids encoding the same measure twice.
           </p>
           <div
             id="chart-lga-ranking"
@@ -404,6 +408,11 @@
               <dd>Vicmap community venues and sport facilities</dd>
             </div>
           </dl>
+          <p class="threshold-note">
+            <strong>Map encoding:</strong> choropleths use population-weighted percentages,
+            composite scores or relative bands - never raw facility totals. In Chart 6,
+            symbol area represents the percentage of dwellings without a motor vehicle.
+          </p>
           <p class="threshold-note">
             <strong>Relative group thresholds used in Charts 7–9:</strong> access tertiles at
             36.278 and 47.606; IRSD score tertiles at 1018 and 1043. A lower IRSD score means

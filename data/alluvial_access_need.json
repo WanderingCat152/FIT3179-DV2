@@ -13,15 +13,15 @@
   "stages": [
     {
       "x": 70,
-      "label": "IRSD disadvantage"
+      "label": "Start: IRSD disadvantage →"
     },
     {
       "x": 441,
-      "label": "Overall access"
+      "label": "Overall access →"
     },
     {
       "x": 812,
-      "label": "Weakest domain"
+      "label": "End: weakest domain"
     }
   ],
   "nodes": [
@@ -71,7 +71,7 @@
       "value": 1898509,
       "share_pct": 39.2,
       "lga_count": 11,
-      "color": "#c7614f"
+      "color": "#D55E00"
     },
     {
       "stage": 1,
@@ -95,7 +95,7 @@
       "value": 1242695,
       "share_pct": 25.7,
       "lga_count": 10,
-      "color": "#2f766f"
+      "color": "#0072B2"
     },
     {
       "stage": 2,
@@ -107,7 +107,7 @@
       "value": 3571799,
       "share_pct": 73.8,
       "lga_count": 23,
-      "color": "#6f62a6"
+      "color": "#CC79A7"
     },
     {
       "stage": 2,
@@ -119,7 +119,7 @@
       "value": 1269795,
       "share_pct": 26.2,
       "lga_count": 8,
-      "color": "#d56a62"
+      "color": "#0072B2"
     }
   ],
   "links": [
@@ -221,7 +221,7 @@
       "value": 1414973,
       "share_pct": 29.2,
       "lga_count": 9,
-      "color": "#c7614f"
+      "color": "#D55E00"
     },
     {
       "source_stage": 1,
@@ -231,7 +231,7 @@
       "value": 483536,
       "share_pct": 10.0,
       "lga_count": 2,
-      "color": "#c7614f"
+      "color": "#D55E00"
     },
     {
       "source_stage": 1,
@@ -261,7 +261,7 @@
       "value": 854090,
       "share_pct": 17.6,
       "lga_count": 7,
-      "color": "#2f766f"
+      "color": "#0072B2"
     },
     {
       "source_stage": 1,
@@ -271,7 +271,7 @@
       "value": 388605,
       "share_pct": 8.0,
       "lga_count": 3,
-      "color": "#2f766f"
+      "color": "#0072B2"
     }
   ]
 }
