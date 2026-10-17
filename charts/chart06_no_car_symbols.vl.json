@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A proportional symbol map showing the percentage of dwellings without a motor vehicle in each LGA.",
-  "width": 820,
-  "height": 430,
+  "width": "container",
+  "height": 330,
+  "autosize": {"type": "fit", "contains": "padding"},
   "projection": {"type": "mercator"},
   "layer": [
     {
@@ -23,7 +24,7 @@
           "type": "quantitative",
           "title": "Dwellings without a motor vehicle (%)",
           "scale": {"type": "sqrt", "domain": [0, 50], "range": [30, 950]},
-          "legend": {"orient": "bottom", "direction": "horizontal", "values": [5, 15, 30, 45]}
+          "legend": {"orient": "bottom", "direction": "horizontal", "values": [5, 15, 30, 45], "titleLimit": 280}
         },
         "order": {"field": "pct_dwellings_no_motor_vehicle", "sort": "descending"},
         "tooltip": [

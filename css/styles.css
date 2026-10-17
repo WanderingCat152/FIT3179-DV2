@@ -25,7 +25,7 @@ body {
   color: var(--ink);
   background: var(--paper);
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 14.4px;
+  font-size: 15.25px;
   line-height: 1.6;
 }
 
@@ -35,7 +35,7 @@ a {
 }
 
 .hero {
-  padding: 0 22px 64px;
+  padding: 0 22px 54px;
   background:
     radial-gradient(circle at 78% 20%, rgba(72, 151, 148, 0.18), transparent 32%),
     linear-gradient(145deg, #fbfaf5 0%, #e9f1ec 100%);
@@ -62,7 +62,8 @@ a {
 .nav-links {
   display: flex;
   gap: 20px;
-  font-size: 0.9rem;
+  font-size: 0.93rem;
+  font-weight: 600;
 }
 
 .nav-links a {
@@ -79,7 +80,7 @@ a {
 .hero-grid {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: 52px;
 }
 
 .eyebrow,
@@ -107,7 +108,7 @@ h2 {
 }
 
 h1 {
-  max-width: 684px;
+  max-width: 720px;
   margin: 0;
   font-size: clamp(2.8rem, 6.3vw, 5.6rem);
   line-height: 0.94;
@@ -115,8 +116,8 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: clamp(2rem, 3.6vw, 3.3rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 3.2vw, 2.9rem);
+  line-height: 1.04;
 }
 
 h3 {
@@ -134,7 +135,7 @@ h3 {
 
 .story-section,
 footer {
-  padding: 79px 22px;
+  padding: 68px 22px;
 }
 
 .story-section > *,
@@ -151,9 +152,9 @@ footer > * {
 }
 
 .section-heading {
-  margin-bottom: 34px;
+  margin-bottom: 30px;
   display: grid;
-  grid-template-columns: 49px minmax(0, 702px);
+  grid-template-columns: 49px minmax(0, 860px);
   gap: 16px;
   align-items: start;
 }
@@ -164,10 +165,15 @@ footer > * {
 }
 
 .section-heading p:last-child {
-  max-width: 648px;
+  max-width: 760px;
   margin: 13px 0 0;
   color: var(--muted);
-  font-size: 0.945rem;
+  font-size: 0.97rem;
+}
+
+.section-heading p:last-child strong {
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .two-column-grid {
@@ -178,15 +184,15 @@ footer > * {
 
 .chart-card {
   min-width: 0;
-  padding: 22px;
+  padding: 21px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
+  border-radius: 14px;
+  box-shadow: 0 12px 34px rgba(21, 43, 53, 0.07);
 }
 
 .chart-card-wide {
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .chart-heading {
@@ -203,12 +209,16 @@ footer > * {
 .chart-intro,
 .chart-note {
   color: var(--muted);
-  font-size: 0.83rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
 
 .chart-intro {
-  min-height: 3em;
   margin: 11px 0 14px;
+}
+
+.two-column-grid .chart-intro {
+  min-height: 4.7em;
 }
 
 .chart-note {
@@ -220,7 +230,7 @@ footer > * {
 .chart-host {
   min-width: 0;
   width: 100%;
-  min-height: 324px;
+  min-height: 292px;
   overflow: hidden;
 }
 
@@ -229,7 +239,7 @@ footer > * {
 }
 
 .chart-host-wide {
-  min-height: 540px;
+  min-height: 530px;
 }
 
 .chart-host-heatmap {
@@ -237,19 +247,24 @@ footer > * {
 }
 
 .chart-host-range {
-  min-height: 405px;
+  min-height: 342px;
 }
 
-.chart-host-map-wide,
-.chart-host-bivariate,
+.chart-host-map-pair {
+  min-height: 385px;
+}
+
 .chart-host-scatter,
-.chart-host-alluvial,
+.chart-host-alluvial {
+  min-height: 430px;
+}
+
 .chart-host-boxplot {
-  min-height: 468px;
+  min-height: 414px;
 }
 
 .chart-host-ranking {
-  min-height: 684px;
+  min-height: 650px;
 }
 
 .chart-host .vega-embed,
@@ -268,7 +283,7 @@ footer > * {
 }
 
 .interpretation-grid {
-  margin-top: 20px;
+  margin-top: 18px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
@@ -301,11 +316,11 @@ footer > * {
 }
 
 .method-panel {
-  margin-top: 20px;
-  padding: 38px;
+  margin-top: 18px;
+  padding: 32px;
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-  gap: 54px;
+  gap: 42px;
   background: #173844;
   color: #f7f5ef;
   border-radius: 16px;
@@ -325,6 +340,23 @@ footer > * {
 .method-grid p {
   margin: 0;
   color: #d4e1e1;
+  font-size: 0.93rem;
+}
+
+.map-pair-grid {
+  max-width: var(--max-width);
+  margin: 18px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.map-pair-grid .chart-intro {
+  min-height: 6.7em;
+}
+
+.map-card {
+  box-shadow: 0 8px 24px rgba(21, 43, 53, 0.055);
 }
 
 .domain-key {
@@ -407,8 +439,9 @@ footer p {
   font-size: 0.86rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .two-column-grid,
+  .map-pair-grid,
   .method-panel,
   .method-grid,
   .domain-key,
@@ -419,11 +452,15 @@ footer p {
   .chart-intro {
     min-height: 0;
   }
+
+  .map-pair-grid .chart-intro {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 640px) {
   body {
-    font-size: 13.5px;
+    font-size: 14px;
   }
 
   .hero,
@@ -451,8 +488,8 @@ footer p {
 
   .story-section,
   footer {
-    padding-top: 58px;
-    padding-bottom: 58px;
+    padding-top: 52px;
+    padding-bottom: 52px;
   }
 
   .section-heading {

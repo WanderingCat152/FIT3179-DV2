@@ -3,8 +3,9 @@
   "description": "Lollipop ranking of all 31 metropolitan Melbourne LGAs by overall proximity access score.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [{"calculate": "0", "as": "zero"}],
-  "width": 850,
-  "height": 680,
+  "width": "container",
+  "height": 640,
+  "autosize": {"type": "fit", "contains": "padding"},
   "layer": [
     {
       "mark": {"type": "rule", "stroke": "#a9b7b8", "strokeWidth": 1.8},
@@ -30,7 +31,17 @@
       }
     },
     {
+      "transform": [{"filter": "indexof(['Melbourne', 'Port Phillip', 'Yarra', 'Cardinia', 'Casey', 'Mornington Peninsula'], datum.lga_name_2021) < 0"}],
       "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 9, "fontSize": 11, "fontWeight": 600, "color": "#334b53"},
+      "encoding": {
+        "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
+        "x": {"field": "proximity_access_score_0_100", "type": "quantitative"},
+        "text": {"field": "proximity_access_score_0_100", "type": "quantitative", "format": ".1f"}
+      }
+    },
+    {
+      "transform": [{"filter": {"field": "lga_name_2021", "oneOf": ["Melbourne", "Port Phillip", "Yarra", "Cardinia", "Casey", "Mornington Peninsula"]}}],
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 9, "fontSize": 11.5, "fontWeight": 700, "color": "#152b35"},
       "encoding": {
         "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
         "x": {"field": "proximity_access_score_0_100", "type": "quantitative"},

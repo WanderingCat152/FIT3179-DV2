@@ -34,8 +34,9 @@
       "as": "domain"
     }
   ],
-  "width": 920,
-  "height": 350,
+  "width": "container",
+  "height": 290,
+  "autosize": {"type": "fit", "contains": "padding"},
   "layer": [
     {
       "mark": {"type": "rule", "stroke": "#8a979b", "strokeWidth": 2},
@@ -93,7 +94,7 @@
     "background": null,
     "font": "Segoe UI",
     "view": {"stroke": null},
-    "axis": {"domain": false, "gridColor": "#e1e3de", "labelColor": "#334b53", "titleColor": "#152b35"},
-    "legend": {"labelColor": "#334b53", "titleColor": "#152b35"}
+    "axis": {"domain": false, "gridColor": "#e1e3de", "labelColor": "#334b53", "labelFontSize": 11, "titleColor": "#152b35"},
+    "legend": {"labelColor": "#334b53", "labelFontSize": 11, "titleColor": "#152b35"}
   }
 }

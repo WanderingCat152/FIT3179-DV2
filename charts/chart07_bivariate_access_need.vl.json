@@ -3,8 +3,8 @@
   "description": "A bivariate choropleth combining overall access tertiles with IRSD disadvantage tertiles.",
   "hconcat": [
     {
-      "width": 710,
-      "height": 440,
+      "width": 300,
+      "height": 330,
       "projection": {"type": "mercator"},
       "layer": [
         {
@@ -48,14 +48,14 @@
         {
           "data": {"url": "data/lga_representative_points.json"},
           "transform": [
-            {"filter": {"field": "lga_name_2021", "oneOf": ["Casey", "Wyndham", "Frankston", "Brimbank"]}}
+            {"filter": {"field": "lga_name_2021", "oneOf": ["Wyndham", "Brimbank"]}}
           ],
           "mark": {
             "type": "text",
             "align": "left",
             "baseline": "middle",
             "dx": 7,
-            "fontSize": 11,
+            "fontSize": 9.5,
             "fontWeight": 700,
             "fill": "#fffdf8",
             "stroke": "#fffdf8",
@@ -70,17 +70,57 @@
         {
           "data": {"url": "data/lga_representative_points.json"},
           "transform": [
-            {"filter": {"field": "lga_name_2021", "oneOf": ["Casey", "Wyndham", "Frankston", "Brimbank"]}}
+            {"filter": {"field": "lga_name_2021", "oneOf": ["Wyndham", "Brimbank"]}}
           ],
           "mark": {
             "type": "text",
             "align": "left",
             "baseline": "middle",
             "dx": 7,
-            "fontSize": 11,
+            "fontSize": 9.5,
             "fontWeight": 700,
             "fill": "#152b35"
           },
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"},
+            "text": {"field": "lga_name_2021"}
+          }
+        },
+        {
+          "data": {"url": "data/lga_representative_points.json"},
+          "transform": [{"filter": "datum.lga_name_2021 === 'Casey'"}],
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "dy": -8, "fontSize": 9.5, "fontWeight": 700, "fill": "#fffdf8", "stroke": "#fffdf8", "strokeWidth": 3},
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"},
+            "text": {"field": "lga_name_2021"}
+          }
+        },
+        {
+          "data": {"url": "data/lga_representative_points.json"},
+          "transform": [{"filter": "datum.lga_name_2021 === 'Casey'"}],
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "dy": -8, "fontSize": 9.5, "fontWeight": 700, "fill": "#152b35"},
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"},
+            "text": {"field": "lga_name_2021"}
+          }
+        },
+        {
+          "data": {"url": "data/lga_representative_points.json"},
+          "transform": [{"filter": "datum.lga_name_2021 === 'Frankston'"}],
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "dy": 9, "fontSize": 9.5, "fontWeight": 700, "fill": "#fffdf8", "stroke": "#fffdf8", "strokeWidth": 3},
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"},
+            "text": {"field": "lga_name_2021"}
+          }
+        },
+        {
+          "data": {"url": "data/lga_representative_points.json"},
+          "transform": [{"filter": "datum.lga_name_2021 === 'Frankston'"}],
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "dy": 9, "fontSize": 9.5, "fontWeight": 700, "fill": "#152b35"},
           "encoding": {
             "longitude": {"field": "longitude", "type": "quantitative"},
             "latitude": {"field": "latitude", "type": "quantitative"},
@@ -90,7 +130,7 @@
       ]
     },
     {
-      "title": {"text": "Bivariate key", "anchor": "middle", "fontSize": 14},
+      "title": {"text": "Bivariate key", "anchor": "middle", "fontSize": 12},
       "data": {
         "values": [
           {"access": "Lower", "disadvantage": "Higher", "class": "Lower access | Higher disadvantage"},
@@ -104,12 +144,12 @@
           {"access": "Higher", "disadvantage": "Lower", "class": "Higher access | Lower disadvantage"}
         ]
       },
-      "width": 185,
-      "height": 185,
+      "width": 112,
+      "height": 112,
       "mark": {"type": "rect", "stroke": "#fffdf8", "strokeWidth": 1.5},
       "encoding": {
-        "x": {"field": "access", "type": "ordinal", "sort": ["Lower", "Middle", "Higher"], "title": "Overall access →", "axis": {"labelAngle": 0}},
-        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": "IRSD disadvantage"},
+        "x": {"field": "access", "type": "ordinal", "sort": ["Lower", "Middle", "Higher"], "title": "Overall access →", "axis": {"labelAngle": 0, "labelFontSize": 9, "titleFontSize": 10}},
+        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": "IRSD disadvantage", "axis": {"labelFontSize": 9, "titleFontSize": 10}},
         "color": {
           "field": "class",
           "type": "nominal",
@@ -136,7 +176,7 @@
       }
     }
   ],
-  "spacing": 28,
+  "spacing": 14,
   "resolve": {"scale": {"color": "independent"}, "legend": {"color": "independent"}},
   "config": {
     "background": null,

@@ -8,7 +8,7 @@
   "params": [
     {
       "name": "facilityChoice",
-      "value": "education",
+      "value": "health",
       "bind": {
         "input": "select",
         "name": "Facility category: ",
@@ -31,7 +31,7 @@
         "format": {"type": "json", "property": "features"}
       },
       "transform": [{"filter": "datum.properties.facility_category === facilityChoice"}],
-      "mark": {"type": "geoshape", "filled": true, "opacity": 0.78, "size": 32, "stroke": "white", "strokeWidth": 0.35},
+      "mark": {"type": "geoshape", "filled": true, "opacity": 0.72, "size": 30, "stroke": "white", "strokeWidth": 0.35},
       "encoding": {
         "color": {
           "field": "properties.facility_category",

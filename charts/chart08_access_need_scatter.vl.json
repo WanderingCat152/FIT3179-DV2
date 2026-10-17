@@ -5,14 +5,15 @@
   "transform": [
     {"calculate": "datum.irsd_score <= 1018 ? 'Higher disadvantage' : datum.irsd_score <= 1043 ? 'Middle disadvantage' : 'Lower disadvantage'", "as": "disadvantage_class"}
   ],
-  "width": 900,
-  "height": 430,
+  "width": "container",
+  "height": 400,
+  "autosize": {"type": "fit", "contains": "padding"},
   "layer": [
     {
       "data": {"values": [{}]},
       "mark": {"type": "rect", "color": "#f7e9dc", "opacity": 0.65},
       "encoding": {
-        "x": {"datum": 0, "type": "quantitative", "scale": {"domain": [0, 100]}},
+        "x": {"datum": 15, "type": "quantitative", "scale": {"domain": [15, 90]}},
         "x2": {"datum": 36.278},
         "y": {"datum": 6.223, "type": "quantitative", "scale": {"domain": [0, 50]}},
         "y2": {"datum": 50}
@@ -41,7 +42,7 @@
           "field": "proximity_access_score_0_100",
           "type": "quantitative",
           "title": "Overall proximity access score",
-          "scale": {"domain": [0, 100]}
+          "scale": {"domain": [15, 90]}
         },
         "y": {
           "field": "pct_dwellings_no_motor_vehicle",
@@ -87,7 +88,7 @@
       }
     },
     {
-      "data": {"values": [{"x": 3, "y": 48, "label": "Low access + above-median no-car share"}]},
+      "data": {"values": [{"x": 17, "y": 48, "label": "Low access + above-median no-car share"}]},
       "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 12, "fontWeight": 600, "color": "#8b4b34"},
       "encoding": {
         "x": {"field": "x", "type": "quantitative"},
