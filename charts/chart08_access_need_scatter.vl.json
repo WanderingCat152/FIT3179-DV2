@@ -1,54 +1,35 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Scatterplot comparing overall access with the share of dwellings without a motor vehicle, coloured by IRSD disadvantage group.",
+  "description": "Grouped strip plot comparing overall access across three rank-based no-car household groups.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [
-    {"calculate": "datum.irsd_score <= 1018 ? 'Higher disadvantage' : datum.irsd_score <= 1043 ? 'Middle disadvantage' : 'Lower disadvantage'", "as": "disadvantage_class"}
+    {"calculate": "datum.irsd_score <= 1018 ? 'Higher disadvantage' : datum.irsd_score <= 1043 ? 'Middle disadvantage' : 'Lower disadvantage'", "as": "disadvantage_class"},
+    {
+      "window": [{"op": "row_number", "as": "no_car_rank"}],
+      "sort": [{"field": "pct_dwellings_no_motor_vehicle", "order": "ascending"}]
+    },
+    {"calculate": "datum.no_car_rank <= 10 ? 'Lower no-car share' : datum.no_car_rank <= 21 ? 'Middle no-car share' : 'Higher no-car share'", "as": "no_car_group"}
   ],
   "width": "container",
-  "height": 400,
+  "height": 380,
   "autosize": {"type": "fit", "contains": "padding"},
   "layer": [
     {
-      "data": {"values": [{}]},
-      "mark": {"type": "rect", "color": "#f7e9dc", "opacity": 0.65},
-      "encoding": {
-        "x": {"datum": 15, "type": "quantitative", "scale": {"domain": [15, 90]}},
-        "x2": {"datum": 36.278},
-        "y": {"datum": 6.223, "type": "quantitative", "scale": {"domain": [0, 50]}},
-        "y2": {"datum": 50}
-      }
-    },
-    {
-      "mark": {"type": "rule", "stroke": "#b8a28f", "strokeDash": [5, 5]},
-      "encoding": {"x": {"datum": 36.278, "type": "quantitative"}}
-    },
-    {
-      "mark": {"type": "rule", "stroke": "#b8a28f", "strokeDash": [5, 5]},
-      "encoding": {"y": {"datum": 6.223, "type": "quantitative"}}
-    },
-    {
-      "transform": [{"regression": "pct_dwellings_no_motor_vehicle", "on": "proximity_access_score_0_100"}],
-      "mark": {"type": "line", "color": "#334b53", "strokeWidth": 2, "opacity": 0.65},
-      "encoding": {
-        "x": {"field": "proximity_access_score_0_100", "type": "quantitative"},
-        "y": {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative"}
-      }
-    },
-    {
-      "mark": {"type": "point", "filled": true, "size": 105, "opacity": 0.88, "stroke": "#fffdf8", "strokeWidth": 1},
+      "mark": {"type": "point", "filled": true, "size": 125, "opacity": 0.86, "stroke": "#fffdf8", "strokeWidth": 1},
       "encoding": {
         "x": {
+          "field": "no_car_group",
+          "type": "ordinal",
+          "title": "LGA group by dwellings without a motor vehicle",
+          "sort": ["Lower no-car share", "Middle no-car share", "Higher no-car share"],
+          "axis": {"labelAngle": 0, "labelFontSize": 12}
+        },
+        "xOffset": {"field": "lga_name_2021", "type": "nominal"},
+        "y": {
           "field": "proximity_access_score_0_100",
           "type": "quantitative",
           "title": "Overall proximity access score",
           "scale": {"domain": [15, 90]}
-        },
-        "y": {
-          "field": "pct_dwellings_no_motor_vehicle",
-          "type": "quantitative",
-          "title": "Dwellings without a motor vehicle (%)",
-          "scale": {"domain": [0, 50]}
         },
         "color": {
           "field": "disadvantage_class",
@@ -62,38 +43,39 @@
         },
         "tooltip": [
           {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
-          {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
+          {"field": "no_car_group", "type": "nominal", "title": "No-car group"},
           {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative", "title": "No-motor-vehicle dwellings", "format": ".1f"},
+          {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
           {"field": "irsd_score", "type": "quantitative", "title": "IRSD score", "format": ".0f"},
           {"field": "disadvantage_class", "type": "nominal", "title": "IRSD group"}
         ]
       }
     },
     {
-      "transform": [{"filter": {"field": "lga_name_2021", "oneOf": ["Brimbank", "Melbourne", "Moreland", "Yarra"]}}],
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 8, "dy": -7, "fontSize": 12, "fontWeight": 600, "color": "#152b35"},
+      "transform": [
+        {
+          "aggregate": [{"op": "median", "field": "proximity_access_score_0_100", "as": "median_access"}],
+          "groupby": ["no_car_group"]
+        }
+      ],
+      "mark": {"type": "tick", "orient": "horizontal", "size": 62, "thickness": 4, "color": "#152b35"},
       "encoding": {
-        "x": {"field": "proximity_access_score_0_100", "type": "quantitative"},
-        "y": {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative"},
-        "text": {"field": "lga_name_2021"}
+        "x": {"field": "no_car_group", "type": "ordinal", "sort": ["Lower no-car share", "Middle no-car share", "Higher no-car share"]},
+        "y": {"field": "median_access", "type": "quantitative"},
+        "tooltip": [
+          {"field": "no_car_group", "type": "nominal", "title": "No-car group"},
+          {"field": "median_access", "type": "quantitative", "title": "Median access", "format": ".1f"}
+        ]
       }
     },
     {
-      "transform": [{"filter": "datum.lga_name_2021 === 'Greater Dandenong'"}],
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 8, "dy": 11, "fontSize": 12, "fontWeight": 600, "color": "#152b35"},
+      "transform": [{"filter": {"field": "lga_name_2021", "oneOf": ["Melbourne", "Brimbank"]}}],
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 7, "dy": -8, "fontSize": 11, "fontWeight": 700, "color": "#152b35"},
       "encoding": {
-        "x": {"field": "proximity_access_score_0_100", "type": "quantitative"},
-        "y": {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative"},
+        "x": {"field": "no_car_group", "type": "ordinal", "sort": ["Lower no-car share", "Middle no-car share", "Higher no-car share"]},
+        "xOffset": {"field": "lga_name_2021", "type": "nominal"},
+        "y": {"field": "proximity_access_score_0_100", "type": "quantitative"},
         "text": {"field": "lga_name_2021"}
-      }
-    },
-    {
-      "data": {"values": [{"x": 17, "y": 48, "label": "Low access + above-median no-car share"}]},
-      "mark": {"type": "text", "align": "left", "baseline": "top", "fontSize": 12, "fontWeight": 600, "color": "#8b4b34"},
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "text": {"field": "label"}
       }
     }
   ],

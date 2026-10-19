@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A proportional symbol map showing the percentage of dwellings without a motor vehicle in each LGA.",
+  "description": "A spike map showing the percentage of dwellings without a motor vehicle in each LGA.",
   "width": "container",
   "height": 330,
   "autosize": {"type": "fit", "contains": "padding"},
@@ -15,17 +15,15 @@
     },
     {
       "data": {"url": "data/lga_representative_points.json"},
-      "mark": {"type": "circle", "color": "#df7447", "opacity": 0.74, "stroke": "#fffdf8", "strokeWidth": 1},
+      "transform": [
+        {"calculate": "datum.latitude + datum.pct_dwellings_no_motor_vehicle * 0.005", "as": "spike_latitude"}
+      ],
+      "mark": {"type": "rule", "color": "#d56f43", "opacity": 0.84, "strokeWidth": 4, "strokeCap": "round"},
       "encoding": {
         "longitude": {"field": "longitude", "type": "quantitative"},
         "latitude": {"field": "latitude", "type": "quantitative"},
-        "size": {
-          "field": "pct_dwellings_no_motor_vehicle",
-          "type": "quantitative",
-          "title": "Dwellings without a motor vehicle (%)",
-          "scale": {"type": "sqrt", "domain": [0, 50], "range": [30, 950]},
-          "legend": {"orient": "bottom", "direction": "horizontal", "values": [5, 15, 30, 45], "titleLimit": 280}
-        },
+        "longitude2": {"field": "longitude"},
+        "latitude2": {"field": "spike_latitude"},
         "order": {"field": "pct_dwellings_no_motor_vehicle", "sort": "descending"},
         "tooltip": [
           {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
@@ -33,6 +31,28 @@
           {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
           {"field": "disadvantage_band", "type": "nominal", "title": "IRSD group"}
         ]
+      }
+    },
+    {
+      "data": {"url": "data/lga_representative_points.json"},
+      "mark": {"type": "point", "filled": true, "size": 24, "color": "#9f4d31", "stroke": "#fffdf8", "strokeWidth": 0.8},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {"url": "data/lga_representative_points.json"},
+      "transform": [
+        {"filter": {"field": "lga_name_2021", "oneOf": ["Melbourne", "Yarra"]}},
+        {"calculate": "datum.latitude + datum.pct_dwellings_no_motor_vehicle * 0.005", "as": "spike_latitude"},
+        {"calculate": "datum.lga_name_2021 + ' ' + format(datum.pct_dwellings_no_motor_vehicle, '.1f') + '%'", "as": "spike_label"}
+      ],
+      "mark": {"type": "text", "align": "left", "baseline": "bottom", "dx": 5, "dy": -3, "fontSize": 10, "fontWeight": 700, "color": "#7b3d2b"},
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "spike_latitude", "type": "quantitative"},
+        "text": {"field": "spike_label"}
       }
     }
   ],

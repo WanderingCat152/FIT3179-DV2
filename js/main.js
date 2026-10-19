@@ -1,15 +1,15 @@
 const charts = [
-  ["#chart-overall-access", "charts/chart01_overall_access.vl.json?v=20261018a"],
-  ["#chart-facility-points", "charts/chart02_facility_points.vl.json?v=20261018a"],
-  ["#chart-domain-maps", "charts/chart03_domain_small_multiples.vl.json?v=20261018a"],
-  ["#chart-domain-heatmap", "charts/chart04_domain_heatmap.vl.json?v=20261018a"],
-  ["#chart-domain-gap", "charts/chart05_domain_gap.vl.json?v=20261018a"],
-  ["#chart-no-car-map", "charts/chart06_no_car_symbols.vl.json?v=20261018a"],
-  ["#chart-bivariate-map", "charts/chart07_bivariate_access_need.vl.json?v=20261018a"],
-  ["#chart-access-need-scatter", "charts/chart08_access_need_scatter.vl.json?v=20261018a"],
-  ["#chart-alluvial", "charts/chart09_alluvial.vg.json?v=20261018a"],
-  ["#chart-lga-ranking", "charts/chart10_lga_ranking.vl.json?v=20261018a"],
-  ["#chart-domain-boxplot", "charts/chart11_domain_boxplot.vl.json?v=20261018a"],
+  ["#chart-overall-access", "charts/chart01_overall_access.vl.json?v=20261019a"],
+  ["#chart-facility-points", "charts/chart02_facility_points.vl.json?v=20261019a"],
+  ["#chart-domain-maps", "charts/chart03_domain_small_multiples.vl.json?v=20261019a"],
+  ["#chart-domain-heatmap", "charts/chart04_domain_heatmap.vl.json?v=20261019a"],
+  ["#chart-domain-gap", "charts/chart05_domain_gap.vl.json?v=20261019a"],
+  ["#chart-no-car-map", "charts/chart06_no_car_symbols.vl.json?v=20261019a"],
+  ["#chart-bivariate-map", "charts/chart07_bivariate_access_need.vl.json?v=20261019a"],
+  ["#chart-access-need-scatter", "charts/chart08_access_need_scatter.vl.json?v=20261019a"],
+  ["#chart-alluvial", "charts/chart09_alluvial.vg.json?v=20261019a"],
+  ["#chart-lga-ranking", "charts/chart10_lga_ranking.vl.json?v=20261019a"],
+  ["#chart-domain-boxplot", "charts/chart11_domain_boxplot.vl.json?v=20261019a"],
 ];
 
 const embedOptions = {

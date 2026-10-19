@@ -514,6 +514,7 @@ footer p {
     gap: 27px;
   }
 
+  .chart-host-wide,
   .chart-host-heatmap,
   .chart-host-range,
   .chart-host-bivariate,
@@ -524,6 +525,7 @@ footer p {
     overflow-x: auto;
   }
 
+  .chart-host-wide svg,
   .chart-host-heatmap svg,
   .chart-host-range svg,
   .chart-host-bivariate svg,

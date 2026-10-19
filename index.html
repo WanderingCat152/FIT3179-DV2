@@ -8,7 +8,7 @@
       content="A data story about proximity to essential services across metropolitan Melbourne."
     />
     <title>Access Depends on Where You Live</title>
-    <link rel="stylesheet" href="css/styles.css?v=20261018a" />
+    <link rel="stylesheet" href="css/styles.css?v=20261019a" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
@@ -78,22 +78,23 @@
           <article class="chart-card">
             <div class="chart-heading">
               <div>
-                <p class="chart-number">Chart 2</p>
-                <h3>Where facilities are located</h3>
+                <p class="chart-number">Chart 2 · Binned density map</p>
+                <h3>Where facilities concentrate</h3>
               </div>
             </div>
             <p class="chart-intro">
-              Select one facility category at a time. This avoids hiding the geographic
-              pattern beneath more than three thousand overlapping points.
+              Select one category at a time. Each square groups facilities into an
+              approximate 5 km grid cell; darker cells contain more mapped facilities.
             </p>
             <div
               id="chart-facility-points"
               class="chart-host chart-host-map"
-              aria-label="Interactive point map of facilities by category"
+              aria-label="Interactive binned density map of facilities by category"
             ></div>
             <p class="chart-note">
-              Facility presence does not measure capacity, quality, opening hours, cost,
-              or eligibility.
+              <strong>Why aggregate the points?</strong> The grid makes concentration visible
+              without allowing hundreds of coincident symbols to hide one another. Counts are
+              not adjusted for population, capacity or service quality.
             </p>
           </article>
         </div>
@@ -188,14 +189,14 @@
           <article class="chart-card map-card">
             <div class="chart-heading">
               <div>
-                <p class="chart-number">Chart 6</p>
+                <p class="chart-number">Chart 6 · Spike map</p>
                 <h3>Where living without a car is most common</h3>
               </div>
             </div>
             <p class="chart-intro">
-              Circle area represents the share of dwellings without a motor vehicle. The
-              restrained size scale preserves LGA boundaries and provides community context,
-              not an accessibility score.
+              Each line starts at an LGA representative point. Line length represents the
+              share of dwellings without a motor vehicle, reducing the overlap created by
+              proportional circles.
             </p>
             <div
               id="chart-no-car-map"
@@ -204,8 +205,8 @@
             ></div>
             <p class="chart-note">
               Car-free households concentrate in well-connected inner LGAs, especially
-              Melbourne and Yarra. Low car ownership therefore does not automatically mean
-              low facility proximity.
+              Melbourne and Yarra. The spike map provides community context; it is not itself
+              an accessibility score.
             </p>
           </article>
 
@@ -237,22 +238,23 @@
           <div class="chart-heading">
             <div>
               <p class="chart-number">Chart 8</p>
-              <h3>Car-free living is usually associated with better access</h3>
+              <h3>Access rises across car-free household groups</h3>
             </div>
           </div>
           <p class="chart-intro">
-            The shaded area marks lower access combined with an above-median no-car share.
-            Colour adds IRSD context, while the fitted line summarises the overall pattern.
+            LGAs are divided into three near-equal groups by their no-car household share.
+            Points show overall access, colour adds IRSD context, and the black tick marks
+            each group's median.
           </p>
           <div
             id="chart-access-need-scatter"
             class="chart-host chart-host-scatter"
-            aria-label="Scatterplot comparing access with dwellings without a motor vehicle"
+            aria-label="Grouped strip plot comparing access across no-car household groups"
           ></div>
           <p class="chart-note">
-            Inner Melbourne's high no-car share drives a strong positive relationship between
-            car-free living and facility proximity. Brimbank is the clearest exception in the
-            shaded priority area.
+            Median access rises from <strong>32.6</strong> in the lower no-car group to
+            <strong>42.3</strong> in the middle group and <strong>60.0</strong> in the higher
+            group. This is an association, not evidence that low car ownership causes access.
           </p>
         </article>
 
@@ -413,13 +415,15 @@
           </dl>
           <p class="threshold-note">
             <strong>Map encoding:</strong> choropleths use population-weighted percentages,
-            composite scores or relative bands - never raw facility totals. In Chart 6,
-            symbol area represents the percentage of dwellings without a motor vehicle.
+            composite scores or relative bands - never raw facility totals. Chart 2 aggregates
+            facility records into approximate grid cells, while Chart 6 uses spike length for
+            the percentage of dwellings without a motor vehicle.
           </p>
           <p class="threshold-note">
-            <strong>Relative group thresholds used in Charts 7–9:</strong> access tertiles at
-            36.278 and 47.606; IRSD score tertiles at 1018 and 1043. A lower IRSD score means
-            greater relative disadvantage.
+            <strong>Relative groups:</strong> Charts 7 and 9 use access tertiles at 36.278 and
+            47.606 and IRSD score tertiles at 1018 and 1043. Chart 8 forms three rank-based
+            no-car groups containing 10, 11 and 10 LGAs. A lower IRSD score means greater
+            relative disadvantage.
           </p>
         </div>
       </section>
@@ -448,6 +452,6 @@
     </footer>
 
     <noscript>This page requires JavaScript to display the Vega-Lite charts.</noscript>
-    <script src="js/main.js?v=20261018a"></script>
+    <script src="js/main.js?v=20261019a"></script>
   </body>
 </html>

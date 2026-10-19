@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Interactive point map showing one facility category at a time.",
+  "description": "Interactive binned density map showing the concentration of one facility category at a time.",
   "width": "container",
   "height": 420,
   "autosize": {"type": "fit", "contains": "padding"},
@@ -30,23 +30,34 @@
         "url": "data/facility_points.geojson",
         "format": {"type": "json", "property": "features"}
       },
-      "transform": [{"filter": "datum.properties.facility_category === facilityChoice"}],
-      "mark": {"type": "geoshape", "filled": true, "opacity": 0.72, "size": 30, "stroke": "white", "strokeWidth": 0.35},
+      "transform": [
+        {"filter": "datum.properties.facility_category === facilityChoice"},
+        {"calculate": "datum.geometry.coordinates[0]", "as": "facility_longitude"},
+        {"calculate": "datum.geometry.coordinates[1]", "as": "facility_latitude"},
+        {"bin": {"step": 0.05}, "field": "facility_longitude", "as": ["longitude_start", "longitude_end"]},
+        {"bin": {"step": 0.05}, "field": "facility_latitude", "as": ["latitude_start", "latitude_end"]},
+        {
+          "aggregate": [{"op": "count", "as": "facility_count"}],
+          "groupby": ["longitude_start", "longitude_end", "latitude_start", "latitude_end"]
+        },
+        {"calculate": "(datum.longitude_start + datum.longitude_end) / 2", "as": "grid_longitude"},
+        {"calculate": "(datum.latitude_start + datum.latitude_end) / 2", "as": "grid_latitude"}
+      ],
+      "mark": {"type": "square", "filled": true, "opacity": 0.88, "size": 66, "stroke": "#fffdf8", "strokeWidth": 0.45},
       "encoding": {
+        "longitude": {"field": "grid_longitude", "type": "quantitative"},
+        "latitude": {"field": "grid_latitude", "type": "quantitative"},
         "color": {
-          "field": "properties.facility_category",
-          "type": "nominal",
-          "scale": {
-            "domain": ["health", "education", "cultural", "community_sport"],
-            "range": ["#0072B2", "#E69F00", "#CC79A7", "#009E73"]
-          },
-          "legend": null
+          "field": "facility_count",
+          "type": "quantitative",
+          "title": "Facilities in grid cell",
+          "scale": {"type": "sqrt", "scheme": "goldorange"},
+          "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 170}
         },
         "tooltip": [
-          {"field": "properties.facility_name", "type": "nominal", "title": "Facility"},
-          {"field": "properties.facility_type", "type": "nominal", "title": "Type"},
-          {"field": "properties.facility_subtype", "type": "nominal", "title": "Subtype"},
-          {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"}
+          {"field": "facility_count", "type": "quantitative", "title": "Facilities in cell", "format": ",.0f"},
+          {"field": "grid_longitude", "type": "quantitative", "title": "Cell longitude", "format": ".3f"},
+          {"field": "grid_latitude", "type": "quantitative", "title": "Cell latitude", "format": ".3f"}
         ]
       }
     }
@@ -54,6 +65,7 @@
   "config": {
     "background": null,
     "view": {"stroke": null},
-    "font": "Segoe UI"
+    "font": "Segoe UI",
+    "legend": {"labelColor": "#334b53", "titleColor": "#152b35"}
   }
 }
