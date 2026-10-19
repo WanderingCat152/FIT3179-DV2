@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Interactive binned density map showing the concentration of one facility category at a time.",
+  "description": "Interactive clipped grid map showing facility density for one category at a time.",
   "width": "container",
   "height": 420,
   "autosize": {"type": "fit", "contains": "padding"},
@@ -27,39 +27,37 @@
     },
     {
       "data": {
-        "url": "data/facility_points.geojson",
+        "url": "data/facility_density_grid.geojson",
         "format": {"type": "json", "property": "features"}
       },
-      "transform": [
-        {"filter": "datum.properties.facility_category === facilityChoice"},
-        {"calculate": "datum.geometry.coordinates[0]", "as": "facility_longitude"},
-        {"calculate": "datum.geometry.coordinates[1]", "as": "facility_latitude"},
-        {"bin": {"step": 0.05}, "field": "facility_longitude", "as": ["longitude_start", "longitude_end"]},
-        {"bin": {"step": 0.05}, "field": "facility_latitude", "as": ["latitude_start", "latitude_end"]},
-        {
-          "aggregate": [{"op": "count", "as": "facility_count"}],
-          "groupby": ["longitude_start", "longitude_end", "latitude_start", "latitude_end"]
-        },
-        {"calculate": "(datum.longitude_start + datum.longitude_end) / 2", "as": "grid_longitude"},
-        {"calculate": "(datum.latitude_start + datum.latitude_end) / 2", "as": "grid_latitude"}
-      ],
-      "mark": {"type": "square", "filled": true, "opacity": 0.88, "size": 66, "stroke": "#fffdf8", "strokeWidth": 0.45},
+      "transform": [{"filter": "datum.properties.facility_category === facilityChoice"}],
+      "mark": {
+        "type": "geoshape",
+        "filled": true,
+        "opacity": 0.9,
+        "stroke": "#fffdf8",
+        "strokeWidth": 0.55
+      },
       "encoding": {
-        "longitude": {"field": "grid_longitude", "type": "quantitative"},
-        "latitude": {"field": "grid_latitude", "type": "quantitative"},
         "color": {
-          "field": "facility_count",
+          "field": "properties.facility_count",
           "type": "quantitative",
           "title": "Facilities in grid cell",
           "scale": {"type": "sqrt", "scheme": "goldorange"},
           "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 170}
         },
         "tooltip": [
-          {"field": "facility_count", "type": "quantitative", "title": "Facilities in cell", "format": ",.0f"},
-          {"field": "grid_longitude", "type": "quantitative", "title": "Cell longitude", "format": ".3f"},
-          {"field": "grid_latitude", "type": "quantitative", "title": "Cell latitude", "format": ".3f"}
+          {"field": "properties.facility_count", "type": "quantitative", "title": "Facilities in cell", "format": ",.0f"},
+          {"field": "properties.facility_category", "type": "nominal", "title": "Category"}
         ]
       }
+    },
+    {
+      "data": {
+        "url": "data/lga_access.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "filled": false, "stroke": "#73888d", "strokeWidth": 0.55}
     }
   ],
   "config": {

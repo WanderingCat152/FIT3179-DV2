@@ -8,7 +8,7 @@
       content="A data story about proximity to essential services across metropolitan Melbourne."
     />
     <title>Access Depends on Where You Live</title>
-    <link rel="stylesheet" href="css/styles.css?v=20261019a" />
+    <link rel="stylesheet" href="css/styles.css?v=20261019b" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
@@ -78,13 +78,13 @@
           <article class="chart-card">
             <div class="chart-heading">
               <div>
-                <p class="chart-number">Chart 2 · Binned density map</p>
+                <p class="chart-number">Chart 2 · Clipped bin map</p>
                 <h3>Where facilities concentrate</h3>
               </div>
             </div>
             <p class="chart-intro">
-              Select one category at a time. Each square groups facilities into an
-              approximate 5 km grid cell; darker cells contain more mapped facilities.
+              Select one category at a time. Each polygon is an approximate 5 km grid cell;
+              darker cells contain more mapped facilities.
             </p>
             <div
               id="chart-facility-points"
@@ -93,8 +93,9 @@
             ></div>
             <p class="chart-note">
               <strong>Why aggregate the points?</strong> The grid makes concentration visible
-              without allowing hundreds of coincident symbols to hide one another. Counts are
-              not adjusted for population, capacity or service quality.
+              without allowing hundreds of coincident symbols to hide one another. Coastal
+              cells are clipped to the study boundary. Counts are not adjusted for population,
+              capacity or service quality.
             </p>
           </article>
         </div>
@@ -452,6 +453,6 @@
     </footer>
 
     <noscript>This page requires JavaScript to display the Vega-Lite charts.</noscript>
-    <script src="js/main.js?v=20261019a"></script>
+    <script src="js/main.js?v=20261019b"></script>
   </body>
 </html>
