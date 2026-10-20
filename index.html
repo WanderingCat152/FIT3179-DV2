@@ -8,7 +8,7 @@
       content="A data story about proximity to essential services across metropolitan Melbourne."
     />
     <title>Access Depends on Where You Live</title>
-    <link rel="stylesheet" href="css/styles.css?v=20261021a" />
+    <link rel="stylesheet" href="css/styles.css?v=20261021b" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
@@ -399,54 +399,81 @@
           </article>
         </div>
 
-        <div class="method-panel" id="method" aria-labelledby="method-title">
-          <div>
-            <p class="eyebrow">How the measure works</p>
-            <h2 id="method-title">A transparent proximity estimate</h2>
-          </div>
-          <div class="method-grid">
-            <p>
-              Each SA1 is represented by an internal point. For each facility domain, the
-              analysis checks whether the nearest mapped facility is within 800 metres in a
-              straight line.
+        <aside class="method-panel" id="method" aria-labelledby="method-title">
+          <header class="method-header">
+            <div>
+              <p class="eyebrow">Method summary</p>
+              <h2 id="method-title">How the accessibility estimate works</h2>
+            </div>
+            <p class="method-lead">
+              A transparent proximity measure designed for comparison—not an official
+              government accessibility index.
             </p>
-            <p>
-              SA1 results are weighted by 2021 population and aggregated to LGA. The overall
-              score is the unweighted mean of the four domain percentages; it is not an
-              official government accessibility index.
-            </p>
+          </header>
+
+          <ol class="method-steps" aria-label="Accessibility calculation steps">
+            <li>
+              <span class="method-step-number">1</span>
+              <div>
+                <strong>Represent each neighbourhood</strong>
+                <p>Use one ABS internal point for every SA1.</p>
+              </div>
+            </li>
+            <li>
+              <span class="method-step-number">2</span>
+              <div>
+                <strong>Test nearby access</strong>
+                <p>Check whether the nearest facility is within 800 m in a straight line.</p>
+              </div>
+            </li>
+            <li>
+              <span class="method-step-number">3</span>
+              <div>
+                <strong>Summarise by LGA</strong>
+                <p>Weight SA1 results by 2021 population, then average the four domains.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="method-domain-section">
+            <p class="method-subtitle">What counts in each facility domain</p>
+            <dl class="domain-key" aria-label="Facility domain mapping">
+              <div>
+                <dt>Health</dt>
+                <dd>Vicmap hospitals and health facilities</dd>
+              </div>
+              <div>
+                <dt>Education</dt>
+                <dd>Open campuses in Victorian School Locations 2025</dd>
+              </div>
+              <div>
+                <dt>Cultural</dt>
+                <dd>Vicmap cultural centres, including libraries, museums and galleries</dd>
+              </div>
+              <div>
+                <dt>Community / sport</dt>
+                <dd>Vicmap community venues and sport facilities</dd>
+              </div>
+            </dl>
           </div>
-          <dl class="domain-key" aria-label="Facility domain mapping">
-            <div>
-              <dt>Health</dt>
-              <dd>Vicmap hospitals and health facilities</dd>
+
+          <details class="technical-notes">
+            <summary>Technical notes and grouping thresholds</summary>
+            <div class="technical-notes-grid">
+              <p>
+                <strong>Map encoding:</strong> choropleths use population-weighted percentages,
+                composite scores or relative bands—never raw facility totals. Chart 2 aggregates
+                facilities into approximate grid cells; Chart 6 uses spike length for the share
+                of dwellings without a motor vehicle.
+              </p>
+              <p>
+                <strong>Relative groups:</strong> Charts 7 and 9 use access tertiles at 36.278 and
+                47.606 and IRSD tertiles at 1018 and 1043. Chart 8 uses three rank-based no-car
+                groups of 10, 11 and 10 LGAs. Lower IRSD indicates greater disadvantage.
+              </p>
             </div>
-            <div>
-              <dt>Education</dt>
-              <dd>Open campuses in Victorian School Locations 2025</dd>
-            </div>
-            <div>
-              <dt>Cultural</dt>
-              <dd>Vicmap cultural centres, including libraries, museums and galleries</dd>
-            </div>
-            <div>
-              <dt>Community / sport</dt>
-              <dd>Vicmap community venues and sport facilities</dd>
-            </div>
-          </dl>
-          <p class="threshold-note">
-            <strong>Map encoding:</strong> choropleths use population-weighted percentages,
-            composite scores or relative bands - never raw facility totals. Chart 2 aggregates
-            facility records into approximate grid cells, while Chart 6 uses spike length for
-            the percentage of dwellings without a motor vehicle.
-          </p>
-          <p class="threshold-note">
-            <strong>Relative groups:</strong> Charts 7 and 9 use access tertiles at 36.278 and
-            47.606 and IRSD score tertiles at 1018 and 1043. Chart 8 forms three rank-based
-            no-car groups containing 10, 11 and 10 LGAs. A lower IRSD score means greater
-            relative disadvantage.
-          </p>
-        </div>
+          </details>
+        </aside>
       </section>
     </main>
 
