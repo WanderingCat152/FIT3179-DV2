@@ -37,8 +37,8 @@ a {
 .hero {
   padding: 0 22px 54px;
   background:
-    radial-gradient(circle at 78% 20%, rgba(72, 151, 148, 0.18), transparent 32%),
-    linear-gradient(145deg, #fbfaf5 0%, #e9f1ec 100%);
+    radial-gradient(circle at 78% 20%, rgba(72, 151, 148, 0.18), transparent 36%),
+    linear-gradient(to bottom, #fbfaf5 0%, #edf4f0 58%, var(--paper) 100%);
 }
 
 .page-nav {
