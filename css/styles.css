@@ -39,7 +39,6 @@ a {
   background:
     radial-gradient(circle at 78% 20%, rgba(72, 151, 148, 0.18), transparent 32%),
     linear-gradient(145deg, #fbfaf5 0%, #e9f1ec 100%);
-  border-bottom: 1px solid var(--line);
 }
 
 .page-nav {
@@ -108,7 +107,7 @@ h2 {
 }
 
 h1 {
-  max-width: 720px;
+  max-width: var(--max-width);
   margin: 0;
   font-size: clamp(2.8rem, 6.3vw, 5.6rem);
   line-height: 0.94;
@@ -127,7 +126,7 @@ h3 {
 }
 
 .hero-lead {
-  max-width: 702px;
+  max-width: 900px;
   margin: 25px 0 0;
   font-size: clamp(1.08rem, 1.8vw, 1.35rem);
   line-height: 1.45;
@@ -147,10 +146,6 @@ footer > * {
 
 .story-section {
   background: var(--paper);
-}
-
-.story-section + .story-section {
-  border-top: 1px solid var(--line);
 }
 
 .section-heading {
