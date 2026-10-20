@@ -7,8 +7,8 @@
         {
           "title": "Health",
           "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
-          "width": 455,
-          "height": 245,
+          "width": 310,
+          "height": 215,
           "projection": {"type": "mercator"},
           "mark": {"type": "geoshape", "stroke": "#f7f5ef", "strokeWidth": 0.6},
           "encoding": {
@@ -28,8 +28,8 @@
         {
           "title": "Education",
           "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
-          "width": 455,
-          "height": 245,
+          "width": 310,
+          "height": 215,
           "projection": {"type": "mercator"},
           "mark": {"type": "geoshape", "stroke": "#f7f5ef", "strokeWidth": 0.6},
           "encoding": {
@@ -56,8 +56,8 @@
         {
           "title": "Cultural",
           "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
-          "width": 455,
-          "height": 245,
+          "width": 310,
+          "height": 215,
           "projection": {"type": "mercator"},
           "mark": {"type": "geoshape", "stroke": "#f7f5ef", "strokeWidth": 0.6},
           "encoding": {
@@ -76,8 +76,8 @@
         {
           "title": "Community / sport",
           "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
-          "width": 455,
-          "height": 245,
+          "width": 310,
+          "height": 215,
           "projection": {"type": "mercator"},
           "mark": {"type": "geoshape", "stroke": "#f7f5ef", "strokeWidth": 0.6},
           "encoding": {

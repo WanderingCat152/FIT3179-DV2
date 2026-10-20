@@ -8,7 +8,7 @@
       content="A data story about proximity to essential services across metropolitan Melbourne."
     />
     <title>Access Depends on Where You Live</title>
-    <link rel="stylesheet" href="css/styles.css?v=20261019b" />
+    <link rel="stylesheet" href="css/styles.css?v=20261020a" />
     <script src="https://cdn.jsdelivr.net/npm/vega@5.33.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.23.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.29.0"></script>
@@ -125,11 +125,31 @@
             All four maps use the same 0–100 scale, making coverage levels directly
             comparable across domains.
           </p>
-          <div
-            id="chart-domain-maps"
-            class="chart-host chart-host-wide"
-            aria-label="Small multiple maps comparing coverage across four facility domains"
-          ></div>
+          <div class="domain-comparison-layout">
+            <div
+              id="chart-domain-maps"
+              class="chart-host chart-host-wide"
+              aria-label="Small multiple maps comparing coverage across four facility domains"
+            ></div>
+            <aside class="domain-insights" aria-label="Key insights from the four facility maps">
+              <p class="insight-eyebrow">What stands out</p>
+              <div class="insight-block">
+                <p class="insight-stat"><strong>30 of 31</strong> LGAs</p>
+                <p>Education is the strongest-coverage domain almost everywhere.</p>
+              </div>
+              <div class="insight-block">
+                <p class="insight-stat"><strong>79.5%</strong> vs <strong>15.9%</strong></p>
+                <p>Median education coverage is five times the cultural median.</p>
+              </div>
+              <div class="insight-block">
+                <p class="insight-stat"><strong>23 of 31</strong> LGAs</p>
+                <p>Cultural facilities are the weakest domain; health is weakest in the other eight.</p>
+              </div>
+              <p class="insight-footnote">
+                The shared 0–100 colour scale makes these contrasts directly comparable.
+              </p>
+            </aside>
+          </div>
         </article>
 
         <article class="chart-card chart-card-wide">
@@ -453,6 +473,6 @@
     </footer>
 
     <noscript>This page requires JavaScript to display the Vega-Lite charts.</noscript>
-    <script src="js/main.js?v=20261019b"></script>
+    <script src="js/main.js?v=20261020a"></script>
   </body>
 </html>

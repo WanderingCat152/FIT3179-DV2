@@ -242,6 +242,69 @@ footer > * {
   min-height: 530px;
 }
 
+.domain-comparison-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+  align-items: start;
+}
+
+.domain-comparison-layout .chart-host-wide {
+  min-height: 500px;
+}
+
+.domain-insights {
+  margin-top: 16px;
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+}
+
+.insight-eyebrow {
+  margin: 0 0 4px;
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.insight-block {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.insight-block p,
+.insight-footnote {
+  margin: 0;
+}
+
+.insight-block p:last-child {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.insight-stat {
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.insight-stat strong {
+  color: var(--teal-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.52rem;
+  line-height: 1;
+}
+
+.insight-footnote {
+  padding-top: 16px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
 .chart-host-heatmap {
   min-height: 684px;
 }
@@ -445,8 +508,24 @@ footer p {
   .method-panel,
   .method-grid,
   .domain-key,
+  .domain-comparison-layout,
   .interpretation-grid {
     grid-template-columns: 1fr;
+  }
+
+  .domain-insights {
+    margin-top: 0;
+    padding: 22px 0 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 22px;
+  }
+
+  .domain-insights .insight-eyebrow,
+  .domain-insights .insight-footnote {
+    grid-column: 1 / -1;
   }
 
   .chart-intro {
@@ -512,6 +591,10 @@ footer p {
   .method-panel {
     padding: 23px 18px;
     gap: 27px;
+  }
+
+  .domain-insights {
+    display: block;
   }
 
   .chart-host-wide,
