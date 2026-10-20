@@ -145,10 +145,12 @@ footer > * {
   margin-right: auto;
 }
 
-.section-tint {
-  background: var(--paper-deep);
+.story-section {
+  background: var(--paper);
+}
+
+.story-section + .story-section {
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 
 .section-heading {
