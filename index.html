@@ -30,8 +30,9 @@
         <div class="hero-copy">
           <h1>Access depends on where you live</h1>
           <p class="hero-lead">
-            How evenly is proximity to essential services distributed across Greater
-            Melbourne, and where does poor access overlap with greater community need?
+            How evenly are essential services located near residents across Greater
+            Melbourne, and where does being farther from services overlap with greater
+            community need?
           </p>
         </div>
       </div>
@@ -44,9 +45,10 @@
           <div>
             <h2 id="where-title">Access depends on where you live</h2>
             <p>
-              <strong>Facility proximity drops sharply toward several outer LGAs.</strong>
-              The overall score varies by more than 63 points across the study area; the
-              maps below establish that gap and show the facilities behind it.
+              <strong>Nearby access drops sharply toward several outer local government
+              areas (LGAs).</strong> LGAs are council areas used here to compare communities.
+              The overall score varies by more than 63 points across the study area; the maps
+              below establish that gap and show the facilities behind it.
             </p>
           </div>
         </div>
@@ -55,22 +57,24 @@
           <article class="chart-card">
             <div class="chart-heading">
               <div>
-                <h3>Overall proximity access</h3>
+                <h3>Overall access to nearby facilities</h3>
               </div>
             </div>
             <p class="chart-intro">
-              The score is the equal-weight mean of the four facility-domain coverage
-              percentages. Melbourne and Cardinia are labelled as the highest and lowest
-              results; hover over any LGA for its detailed values.
+              This project-created score gives equal importance to four service categories.
+              It estimates straight-line proximity and is not an official accessibility
+              index. Melbourne and Cardinia are labelled as the highest and lowest results;
+              hover over any LGA for its detailed values.
             </p>
             <div
               id="chart-overall-access"
               class="chart-host chart-host-map"
-              aria-label="Choropleth map of overall proximity access by LGA"
+              aria-label="Shaded map of overall access to nearby facilities by local government area"
             ></div>
             <p class="chart-note">
-              <strong>Reading the map:</strong> darker areas indicate a larger estimated
-              population share living within 800 metres of nearby essential facilities.
+              <strong>Reading the map:</strong> darker areas indicate a larger estimated share
+              of residents living in neighbourhoods whose representative point is within
+              800 metres in a straight line of a mapped facility. This is not walking distance.
             </p>
           </article>
 
@@ -81,13 +85,13 @@
               </div>
             </div>
             <p class="chart-intro">
-              Select one category at a time. Each polygon is an approximate 5 km grid cell;
+              Select one category at a time. Each shape is an approximate 5 km grid cell;
               darker cells contain more mapped facilities.
             </p>
             <div
               id="chart-facility-points"
               class="chart-host chart-host-map"
-              aria-label="Interactive binned density map of facilities by category"
+              aria-label="Interactive grid map showing where facilities concentrate by category"
             ></div>
             <p class="chart-note">
               <strong>Why aggregate the points?</strong> The grid makes concentration visible
@@ -105,9 +109,9 @@
           <div>
             <h2 id="what-title">Accessible to what</h2>
             <p>
-              <strong>No LGA performs equally well across every facility domain.</strong>
-              Education has a median LGA coverage of 79.5%, while cultural facilities
-              have a median of 15.9%.
+              <strong>No LGA performs equally well across every type of service.</strong>
+              Across the 31 LGAs, the median coverage is 79.5% for education but only
+              15.9% for cultural facilities.
             </p>
           </div>
         </div>
@@ -115,24 +119,25 @@
         <article class="chart-card chart-card-wide">
           <div class="chart-heading">
             <div>
-              <h3>Four facility domains</h3>
+              <h3>Four types of essential service</h3>
             </div>
           </div>
           <p class="chart-intro">
             All four maps use the same 0–100 scale, making coverage levels directly
-            comparable across domains.
+            comparable across service types. Coverage means the estimated share of residents
+            within 800 metres in a straight line of a mapped facility.
           </p>
           <div class="domain-comparison-layout">
             <div
               id="chart-domain-maps"
               class="chart-host chart-host-wide"
-              aria-label="Small multiple maps comparing coverage across four facility domains"
+              aria-label="Four maps comparing estimated access across four service types"
             ></div>
             <aside class="domain-insights" aria-label="Key insights from the four facility maps">
               <p class="insight-eyebrow">What stands out</p>
               <div class="insight-block">
                 <p class="insight-stat"><strong>30 of 31</strong> LGAs</p>
-                <p>Education is the strongest-coverage domain almost everywhere.</p>
+                <p>Education has the highest coverage almost everywhere.</p>
               </div>
               <div class="insight-block">
                 <p class="insight-stat"><strong>79.5%</strong> vs <strong>15.9%</strong></p>
@@ -140,7 +145,7 @@
               </div>
               <div class="insight-block">
                 <p class="insight-stat"><strong>23 of 31</strong> LGAs</p>
-                <p>Cultural facilities are the weakest domain; health is weakest in the other eight.</p>
+                <p>Cultural facilities have the lowest coverage; health is lowest in the other eight.</p>
               </div>
               <p class="insight-footnote">
                 The shared 0–100 colour scale makes these contrasts directly comparable.
@@ -152,7 +157,7 @@
         <article class="chart-card chart-card-wide">
           <div class="chart-heading">
             <div>
-              <h3>Every LGA across every domain</h3>
+              <h3>Every LGA across every service type</h3>
             </div>
           </div>
           <p class="chart-intro">
@@ -162,7 +167,7 @@
           <div
             id="chart-domain-heatmap"
             class="chart-host chart-host-heatmap"
-            aria-label="Heatmap comparing each LGA across four facility domains"
+            aria-label="Colour grid comparing each LGA across four service types"
           ></div>
         </article>
 
@@ -173,13 +178,13 @@
             </div>
           </div>
           <p class="chart-intro">
-            The line spans each LGA's weakest to strongest domain. The eight widest
+            The line spans each LGA's weakest to strongest service type. The eight widest
             gaps show where a reasonable overall score conceals a highly uneven service mix.
           </p>
           <div
             id="chart-domain-gap"
             class="chart-host chart-host-range"
-            aria-label="Range and dot plot of the eight largest within-LGA domain coverage gaps"
+            aria-label="Chart showing the eight largest gaps between an LGA's weakest and strongest service types"
           ></div>
           <p class="chart-note">
             <strong>Hobsons Bay and Darebin have the widest gaps.</strong> In both LGAs,
@@ -195,8 +200,11 @@
             <h2 id="need-title">When low access meets greater need</h2>
             <p>
               <strong>Lower access sometimes overlaps with greater community need—but not
-              everywhere.</strong> IRSD and households without a motor vehicle are shown as
-              context, not folded into the accessibility score or treated as proof of causation.
+              everywhere.</strong> Relative disadvantage is measured with the Australian Bureau
+              of Statistics Index of Relative Socio-economic Disadvantage (IRSD): a lower IRSD
+              score means greater disadvantage. IRSD and households without a motor vehicle are
+              shown as context, not included in the project-created access score or treated as
+              proof of causation.
             </p>
           </div>
         </div>
@@ -209,19 +217,19 @@
               </div>
             </div>
             <p class="chart-intro">
-              Each line starts at an LGA representative point. Line length represents the
+              Each line starts at a representative point for an LGA. Line length represents the
               share of dwellings without a motor vehicle, reducing the overlap created by
               proportional circles.
             </p>
             <div
               id="chart-no-car-map"
               class="chart-host chart-host-map-pair"
-              aria-label="Proportional symbol map of dwellings without a motor vehicle"
+              aria-label="Map using line length to show the share of dwellings without a motor vehicle"
             ></div>
             <p class="chart-note">
               Car-free households concentrate in well-connected inner LGAs, especially
-              Melbourne and Yarra. The spike map provides community context; it is not itself
-              an accessibility score.
+              Melbourne and Yarra. The line-symbol map provides community context; it is not
+              itself an access score.
             </p>
           </article>
 
@@ -232,14 +240,15 @@
               </div>
             </div>
             <p class="chart-intro">
-              Both measures are split into metropolitan tertiles. Dark purple identifies
-              lower access combined with higher disadvantage; original values remain in the
-              tooltip.
+              Both measures are divided into three roughly equal groups across metropolitan
+              Melbourne. Dark purple identifies lower access combined with higher relative
+              disadvantage. The disadvantage groups reverse the IRSD scale, because a lower
+              IRSD score means greater disadvantage; original values remain in the tooltip.
             </p>
             <div
               id="chart-bivariate-map"
               class="chart-host chart-host-map-pair chart-host-bivariate"
-              aria-label="Bivariate map combining access and IRSD disadvantage groups"
+              aria-label="Map combining three access groups with three relative disadvantage groups"
             ></div>
             <p class="chart-note">
               <strong>Casey, Wyndham, Frankston and Brimbank</strong> fall in the lower-access,
@@ -256,13 +265,13 @@
           </div>
           <p class="chart-intro">
             LGAs are divided into three near-equal groups by their no-car household share.
-            Points show overall access, colour adds IRSD context, and the black tick marks
-            each group's median.
+            Points show overall access, colour shows relative disadvantage based on IRSD,
+            and the black tick marks the middle value for each group.
           </p>
           <div
             id="chart-access-need-scatter"
             class="chart-host chart-host-scatter"
-            aria-label="Grouped strip plot comparing access across no-car household groups"
+            aria-label="Dot plot comparing access across three no-car household groups"
           ></div>
           <p class="chart-note">
             Median access rises from <strong>32.6</strong> in the lower no-car group to
@@ -278,17 +287,17 @@
             </div>
           </div>
           <p class="chart-intro">
-            Read from left to right: the flow starts with relative IRSD disadvantage, passes
-            through overall access, and ends at each LGA's weakest facility domain. Ribbon
-            width represents 2021 population.
+            Read from left to right: the flow starts with relative disadvantage based on IRSD,
+            passes through overall access, and ends at each LGA's weakest service type. Wider
+            ribbons represent more residents in the 2021 population.
           </p>
           <div
             id="chart-alluvial"
             class="chart-host chart-host-alluvial"
-            aria-label="Alluvial diagram connecting disadvantage, access and weakest facility domain"
+            aria-label="Flow diagram connecting disadvantage, access and weakest service type"
           ></div>
           <p class="chart-note">
-            Cultural facilities are the weakest domain for LGAs containing 73.8% of the study
+            Cultural facilities are the weakest service type for LGAs containing 73.8% of the study
             population. The flow also shows that disadvantage and low access overlap, but not
             in every community.
           </p>
@@ -314,18 +323,18 @@
             </div>
           </div>
           <p class="chart-intro">
-            LGAs are ordered by the equal-weight mean of the four coverage percentages.
-            Line length encodes the score and the text label reports its exact value; a
-            single point colour avoids encoding the same measure twice.
+            LGAs are ordered by a score that gives equal importance to the four service types.
+            Longer lines mean higher scores, and the label reports the exact value. Every
+            point uses the same colour so the score is not shown twice.
           </p>
           <div
             id="chart-lga-ranking"
             class="chart-host chart-host-ranking"
-            aria-label="Lollipop ranking of all 31 LGAs by overall access score"
+            aria-label="Ranking of all 31 LGAs by overall access score"
           ></div>
           <p class="chart-note">
             Melbourne, Port Phillip and Yarra lead the ranking. Cardinia, Casey and Mornington
-            Peninsula record the lowest composite proximity scores.
+            Peninsula record the lowest overall scores.
           </p>
         </article>
       </section>
@@ -337,7 +346,7 @@
             <h2 id="limits-title">What the measure can and cannot say</h2>
             <p>
               <strong>These charts estimate proximity, not service quality.</strong> The final
-              comparison returns to the four domains, then separates supported findings from
+              comparison returns to the four service types, then separates supported findings from
               claims the measure cannot make.
             </p>
           </div>
@@ -350,13 +359,13 @@
             </div>
           </div>
           <p class="chart-intro">
-            Each box summarises the middle half of LGA results; individual points show the
-            underlying LGAs and remain available for inspection in the tooltip.
+            Each box summarises the middle half of results across LGAs. Individual points show
+            each LGA and remain available for inspection in the tooltip.
           </p>
           <div
             id="chart-domain-boxplot"
             class="chart-host chart-host-boxplot"
-            aria-label="Boxplots comparing LGA coverage distributions across facility domains"
+            aria-label="Distribution chart comparing LGA results across four service types"
           ></div>
           <p class="chart-note">
             Median education coverage is 79.5%, compared with 15.9% for cultural facilities.
@@ -368,11 +377,11 @@
         <div class="interpretation-grid">
           <article class="interpretation-card">
             <p class="eyebrow">What the evidence supports</p>
-            <h3>Proximity is uneven and domain-specific</h3>
+            <h3>Nearby access varies by place and service type</h3>
             <ul>
               <li>Overall access varies by more than 63 points across the 31 LGAs.</li>
-              <li>Education is generally the most geographically widespread domain.</li>
-              <li>Cultural or health facilities form the weakest domain in every LGA.</li>
+              <li>Education is generally the most geographically widespread service type.</li>
+              <li>Cultural or health facilities have the lowest coverage in every LGA.</li>
               <li>Some lower-access LGAs also face higher relative disadvantage.</li>
             </ul>
           </article>
@@ -383,7 +392,7 @@
               <li>Straight-line distance is not a measured walking route or travel time.</li>
               <li>Facility points do not describe capacity, quality, cost or opening hours.</li>
               <li>LGA averages can conceal variation between neighbourhoods.</li>
-              <li>The mixed source years support a cross-sectional story, not historical change.</li>
+              <li>The sources come from different years, so this is a snapshot rather than evidence of historical change.</li>
             </ul>
           </article>
         </div>
@@ -392,41 +401,41 @@
           <header class="method-header">
             <div>
               <p class="eyebrow">Method summary</p>
-              <h2 id="method-title">How the accessibility estimate works</h2>
+              <h2 id="method-title">How the access estimate works</h2>
             </div>
             <p class="method-lead">
-              A transparent proximity measure designed for comparison—not an official
-              government accessibility index.
+              A transparent measure of straight-line closeness designed for comparison—not
+              an official government accessibility index.
             </p>
           </header>
 
-          <ol class="method-steps" aria-label="Accessibility calculation steps">
+          <ol class="method-steps" aria-label="Access estimate calculation steps">
             <li>
               <span class="method-step-number">1</span>
               <div>
                 <strong>Represent each neighbourhood</strong>
-                <p>Use one ABS internal point for every SA1.</p>
+                <p>Use one ABS representative point for each small Census neighbourhood, known as a Statistical Area Level 1 (SA1).</p>
               </div>
             </li>
             <li>
               <span class="method-step-number">2</span>
               <div>
                 <strong>Test nearby access</strong>
-                <p>Check whether the nearest facility is within 800 m in a straight line.</p>
+                <p>Check whether the nearest mapped facility is within 800 m in a straight line—not by an actual walking route.</p>
               </div>
             </li>
             <li>
               <span class="method-step-number">3</span>
               <div>
                 <strong>Summarise by LGA</strong>
-                <p>Weight SA1 results by 2021 population, then average the four domains.</p>
+                <p>Give more influence to SA1 neighbourhoods with more residents in 2021, then take an equal average across the four service types.</p>
               </div>
             </li>
           </ol>
 
           <div class="method-domain-section">
-            <p class="method-subtitle">What counts in each facility domain</p>
-            <dl class="domain-key" aria-label="Facility domain mapping">
+            <p class="method-subtitle">What counts in each service type</p>
+            <dl class="domain-key" aria-label="Service category mapping">
               <div>
                 <dt>Health</dt>
                 <dd>Vicmap hospitals and health facilities</dd>
@@ -475,6 +484,6 @@
     </footer>
 
     <noscript>This page requires JavaScript to display the Vega-Lite charts.</noscript>
-    <script src="js/main.js?v=20261025d"></script>
+    <script src="js/main.js?v=20261025e"></script>
   </body>
 </html>

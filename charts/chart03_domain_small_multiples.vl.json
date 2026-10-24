@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Four small-multiple maps using a common 0 to 100 coverage scale.",
+  "description": "Four maps comparing estimated access to health, education, cultural and community or sport facilities on the same scale.",
   "vconcat": [
     {
       "hconcat": [
@@ -15,12 +15,12 @@
             "color": {
               "field": "properties.coverage_pct_800m_health",
               "type": "quantitative",
-              "title": "Coverage within 800m (%)",
+              "title": "Estimated share within 800 m (%)",
               "scale": {"domain": [0, 100], "scheme": "tealblues"},
               "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 180}
             },
             "tooltip": [
-              {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+              {"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"},
               {"field": "properties.coverage_pct_800m_health", "type": "quantitative", "title": "Health coverage", "format": ".1f"}
             ]
           }
@@ -40,7 +40,7 @@
               "legend": null
             },
             "tooltip": [
-              {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+              {"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"},
               {"field": "properties.coverage_pct_800m_education", "type": "quantitative", "title": "Education coverage", "format": ".1f"}
             ]
           }
@@ -68,7 +68,7 @@
               "legend": null
             },
             "tooltip": [
-              {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+              {"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"},
               {"field": "properties.coverage_pct_800m_cultural", "type": "quantitative", "title": "Cultural coverage", "format": ".1f"}
             ]
           }
@@ -88,7 +88,7 @@
               "legend": null
             },
             "tooltip": [
-              {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+              {"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"},
               {"field": "properties.coverage_pct_800m_community_sport", "type": "quantitative", "title": "Community/sport coverage", "format": ".1f"}
             ]
           }

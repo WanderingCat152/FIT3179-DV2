@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Alluvial flow from IRSD disadvantage group to overall access group and weakest facility domain, weighted by 2021 population.",
+  "description": "Flow diagram linking relative disadvantage, overall access and each area's weakest service type; wider ribbons represent more residents.",
   "width": 900,
   "height": 400,
   "padding": 8,
   "autosize": "pad",
   "data": [
-    {"name": "links", "url": "data/alluvial_access_need.json", "format": {"type": "json", "property": "links"}},
-    {"name": "nodes", "url": "data/alluvial_access_need.json", "format": {"type": "json", "property": "nodes"}},
-    {"name": "stages", "url": "data/alluvial_access_need.json", "format": {"type": "json", "property": "stages"}}
+    {"name": "links", "url": "data/alluvial_access_need.json?v=20261025e", "format": {"type": "json", "property": "links"}},
+    {"name": "nodes", "url": "data/alluvial_access_need.json?v=20261025e", "format": {"type": "json", "property": "nodes"}},
+    {"name": "stages", "url": "data/alluvial_access_need.json?v=20261025e", "format": {"type": "json", "property": "stages"}}
   ],
   "scales": [
     {

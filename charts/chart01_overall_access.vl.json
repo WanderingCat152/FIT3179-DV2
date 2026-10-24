@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Population-weighted proximity access score for 31 metropolitan Melbourne LGAs.",
+  "description": "Project-created score estimating access to nearby facilities across 31 metropolitan Melbourne local government areas.",
   "width": "container",
   "height": 420,
   "autosize": {"type": "fit", "contains": "padding"},
@@ -21,7 +21,7 @@
           "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 220}
         },
         "tooltip": [
-          {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"},
           {"field": "properties.proximity_access_score_0_100", "type": "quantitative", "title": "Overall score", "format": ".1f"},
           {"field": "properties.coverage_pct_800m_health", "type": "quantitative", "title": "Health coverage", "format": ".1f"},
           {"field": "properties.coverage_pct_800m_education", "type": "quantitative", "title": "Education coverage", "format": ".1f"},

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Grouped strip plot comparing overall access across three rank-based no-car household groups.",
+  "description": "Dot plot comparing overall access across three groups based on the share of dwellings without a motor vehicle.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [
     {"calculate": "datum.irsd_score <= 1018 ? 'Higher disadvantage' : datum.irsd_score <= 1043 ? 'Middle disadvantage' : 'Lower disadvantage'", "as": "disadvantage_class"},
@@ -20,7 +20,7 @@
         "x": {
           "field": "no_car_group",
           "type": "ordinal",
-          "title": "LGA group by dwellings without a motor vehicle",
+          "title": "Areas grouped by share of dwellings without a car",
           "sort": ["Lower no-car share", "Middle no-car share", "Higher no-car share"],
           "axis": {"labelAngle": 0, "labelFontSize": 12}
         },
@@ -28,13 +28,13 @@
         "y": {
           "field": "proximity_access_score_0_100",
           "type": "quantitative",
-          "title": "Overall proximity access score",
+          "title": "Overall access score",
           "scale": {"domain": [15, 90]}
         },
         "color": {
           "field": "disadvantage_class",
           "type": "nominal",
-          "title": "IRSD group",
+          "title": "Relative disadvantage",
           "scale": {
             "domain": ["Higher disadvantage", "Middle disadvantage", "Lower disadvantage"],
             "range": ["#8f365a", "#9b7c8f", "#4f8f88"]
@@ -42,12 +42,12 @@
           "legend": {"orient": "bottom", "direction": "horizontal"}
         },
         "tooltip": [
-          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "lga_name_2021", "type": "nominal", "title": "Local government area"},
           {"field": "no_car_group", "type": "nominal", "title": "No-car group"},
           {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative", "title": "No-motor-vehicle dwellings", "format": ".1f"},
           {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
-          {"field": "irsd_score", "type": "quantitative", "title": "IRSD score", "format": ".0f"},
-          {"field": "disadvantage_class", "type": "nominal", "title": "IRSD group"}
+          {"field": "irsd_score", "type": "quantitative", "title": "IRSD score (lower means greater disadvantage)", "format": ".0f"},
+          {"field": "disadvantage_class", "type": "nominal", "title": "Relative disadvantage group"}
         ]
       }
     },

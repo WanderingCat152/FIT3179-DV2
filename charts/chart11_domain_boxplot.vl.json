@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Boxplots and individual LGA points comparing the distribution of coverage across four facility domains.",
+  "description": "Boxplots and individual local government area points comparing estimated access across four service types.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [
     {
@@ -25,7 +25,7 @@
       "mark": {"type": "boxplot", "extent": 1.5, "size": 70, "opacity": 0.78},
       "encoding": {
         "x": {"field": "domain", "type": "nominal", "title": null, "sort": ["Health", "Education", "Cultural", "Community / sport"]},
-        "y": {"field": "coverage_pct", "type": "quantitative", "title": "Population-weighted coverage within 800 m (%)", "scale": {"domain": [0, 100]}},
+        "y": {"field": "coverage_pct", "type": "quantitative", "title": "Estimated share within 800 m (%)", "scale": {"domain": [0, 100]}},
         "color": {
           "field": "domain",
           "type": "nominal",
@@ -39,7 +39,7 @@
       "encoding": {
         "x": {"field": "domain", "type": "nominal", "title": null, "sort": ["Health", "Education", "Cultural", "Community / sport"]},
         "xOffset": {"field": "lga_name_2021", "type": "nominal"},
-        "y": {"field": "coverage_pct", "type": "quantitative", "title": "Population-weighted coverage within 800 m (%)"},
+        "y": {"field": "coverage_pct", "type": "quantitative", "title": "Estimated share within 800 m (%)"},
         "color": {
           "field": "domain",
           "type": "nominal",
@@ -47,8 +47,8 @@
           "legend": null
         },
         "tooltip": [
-          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
-          {"field": "domain", "type": "nominal", "title": "Domain"},
+          {"field": "lga_name_2021", "type": "nominal", "title": "Local government area"},
+          {"field": "domain", "type": "nominal", "title": "Service type"},
           {"field": "coverage_pct", "type": "quantitative", "title": "Coverage", "format": ".1f"}
         ]
       }

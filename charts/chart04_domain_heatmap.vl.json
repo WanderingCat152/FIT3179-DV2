@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Heatmap comparing four facility-domain coverage percentages for every LGA.",
+  "description": "Colour grid comparing estimated access to four service types for every local government area.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [
     {
@@ -41,7 +41,7 @@
         "color": {
           "field": "coverage_pct",
           "type": "quantitative",
-          "title": "Coverage within 800m (%)",
+          "title": "Estimated share within 800 m (%)",
           "scale": {
             "domain": [0, 100],
             "range": ["#f4f4e8", "#c8dfd8", "#78b8b0", "#2e7c8c", "#173f5f"]
@@ -49,8 +49,8 @@
           "legend": {"orient": "bottom", "direction": "horizontal", "gradientLength": 240}
         },
         "tooltip": [
-          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
-          {"field": "facility_domain", "type": "nominal", "title": "Domain"},
+          {"field": "lga_name_2021", "type": "nominal", "title": "Local government area"},
+          {"field": "facility_domain", "type": "nominal", "title": "Service type"},
           {"field": "coverage_pct", "type": "quantitative", "title": "Coverage", "format": ".1f"},
           {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall score", "format": ".1f"}
         ]

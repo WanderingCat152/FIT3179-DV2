@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "The eight LGAs with the largest gap between their strongest and weakest facility-domain coverage.",
+  "description": "The eight local government areas with the largest gap between their highest- and lowest-coverage service types.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [
     {
@@ -50,7 +50,7 @@
         "x": {
           "field": "domain_min",
           "type": "quantitative",
-          "title": "Population-weighted coverage within 800 m (%)",
+          "title": "Estimated share within 800 m (%)",
           "scale": {"domain": [0, 100]}
         },
         "x2": {"field": "domain_max"}
@@ -68,13 +68,13 @@
         "x": {
           "field": "coverage_pct",
           "type": "quantitative",
-          "title": "Population-weighted coverage within 800 m (%)",
+          "title": "Estimated share within 800 m (%)",
           "scale": {"domain": [0, 100]}
         },
         "color": {
           "field": "domain",
           "type": "nominal",
-          "title": "Facility domain",
+          "title": "Service type",
           "scale": {
             "domain": ["Health", "Education", "Cultural", "Community / sport"],
             "range": ["#0072B2", "#E69F00", "#CC79A7", "#009E73"]
@@ -82,10 +82,10 @@
           "legend": {"orient": "bottom", "direction": "horizontal", "columns": 4}
         },
         "tooltip": [
-          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
-          {"field": "domain", "type": "nominal", "title": "Domain"},
+          {"field": "lga_name_2021", "type": "nominal", "title": "Local government area"},
+          {"field": "domain", "type": "nominal", "title": "Service type"},
           {"field": "coverage_pct", "type": "quantitative", "title": "Coverage", "format": ".1f"},
-          {"field": "domain_gap_pp", "type": "quantitative", "title": "Largest domain gap", "format": ".1f"}
+          {"field": "domain_gap_pp", "type": "quantitative", "title": "Largest service gap", "format": ".1f"}
         ]
       }
     }

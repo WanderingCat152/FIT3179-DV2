@@ -13,7 +13,7 @@
   "stages": [
     {
       "x": 70,
-      "label": "Start: IRSD disadvantage →"
+      "label": "Start: relative disadvantage →"
     },
     {
       "x": 441,
@@ -21,7 +21,7 @@
     },
     {
       "x": 812,
-      "label": "End: weakest domain"
+      "label": "End: lowest-coverage service"
     }
   ],
   "nodes": [

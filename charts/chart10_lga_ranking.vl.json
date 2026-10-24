@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Lollipop ranking of all 31 metropolitan Melbourne LGAs by overall proximity access score.",
+  "description": "Ranking of all 31 metropolitan Melbourne local government areas by the project-created overall access score.",
   "data": {"url": "data/lga_access.csv"},
   "transform": [{"calculate": "0", "as": "zero"}],
   "width": "container",
@@ -11,7 +11,7 @@
       "mark": {"type": "rule", "stroke": "#a9b7b8", "strokeWidth": 1.8},
       "encoding": {
         "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
-        "x": {"field": "zero", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall proximity access score"},
+        "x": {"field": "zero", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall access score"},
         "x2": {"field": "proximity_access_score_0_100"}
       }
     },
@@ -19,9 +19,9 @@
       "mark": {"type": "point", "filled": true, "size": 105, "color": "#2f766f", "stroke": "#fffdf8", "strokeWidth": 1},
       "encoding": {
         "y": {"field": "lga_name_2021", "type": "nominal", "title": null, "sort": {"field": "proximity_access_score_0_100", "order": "descending"}},
-        "x": {"field": "proximity_access_score_0_100", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall proximity access score"},
+        "x": {"field": "proximity_access_score_0_100", "type": "quantitative", "scale": {"domain": [0, 100]}, "title": "Overall access score"},
         "tooltip": [
-          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "lga_name_2021", "type": "nominal", "title": "Local government area"},
           {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
           {"field": "coverage_pct_800m_health", "type": "quantitative", "title": "Health", "format": ".1f"},
           {"field": "coverage_pct_800m_education", "type": "quantitative", "title": "Education", "format": ".1f"},

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Interactive clipped grid map showing facility density for one category at a time.",
+  "description": "Interactive grid map showing where facilities concentrate for one category at a time.",
   "width": "container",
   "height": 420,
   "autosize": {"type": "fit", "contains": "padding"},

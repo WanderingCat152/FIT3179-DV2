@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A spike map showing the percentage of dwellings without a motor vehicle in each LGA.",
+  "description": "A map using line length to show the percentage of dwellings without a motor vehicle in each local government area.",
   "width": "container",
   "height": 330,
   "autosize": {"type": "fit", "contains": "padding"},
@@ -10,7 +10,7 @@
       "data": {"url": "data/lga_access.geojson", "format": {"type": "json", "property": "features"}},
       "mark": {"type": "geoshape", "fill": "#edf1ef", "stroke": "#9aa9a8", "strokeWidth": 0.7},
       "encoding": {
-        "tooltip": [{"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"}]
+        "tooltip": [{"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"}]
       }
     },
     {
@@ -26,10 +26,10 @@
         "latitude2": {"field": "spike_latitude"},
         "order": {"field": "pct_dwellings_no_motor_vehicle", "sort": "descending"},
         "tooltip": [
-          {"field": "lga_name_2021", "type": "nominal", "title": "LGA"},
+          {"field": "lga_name_2021", "type": "nominal", "title": "Local government area"},
           {"field": "pct_dwellings_no_motor_vehicle", "type": "quantitative", "title": "No-motor-vehicle dwellings", "format": ".1f"},
           {"field": "proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
-          {"field": "disadvantage_band", "type": "nominal", "title": "IRSD group"}
+          {"field": "disadvantage_band", "type": "nominal", "title": "Relative disadvantage group"}
         ]
       }
     },

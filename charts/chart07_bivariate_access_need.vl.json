@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A bivariate choropleth combining overall access tertiles with IRSD disadvantage tertiles.",
+  "description": "A shaded map combining three overall-access groups with three relative-disadvantage groups.",
   "hconcat": [
     {
       "width": 300,
@@ -36,10 +36,10 @@
               "legend": null
             },
             "tooltip": [
-              {"field": "properties.lga_name_2021", "type": "nominal", "title": "LGA"},
+              {"field": "properties.lga_name_2021", "type": "nominal", "title": "Local government area"},
               {"field": "properties.proximity_access_score_0_100", "type": "quantitative", "title": "Overall access score", "format": ".1f"},
               {"field": "access_class", "type": "nominal", "title": "Access group"},
-              {"field": "properties.irsd_score", "type": "quantitative", "title": "IRSD score", "format": ".0f"},
+              {"field": "properties.irsd_score", "type": "quantitative", "title": "IRSD score (lower means greater disadvantage)", "format": ".0f"},
               {"field": "disadvantage_class", "type": "nominal", "title": "Disadvantage group"},
               {"field": "properties.pct_dwellings_no_motor_vehicle", "type": "quantitative", "title": "No-motor-vehicle dwellings", "format": ".1f"}
             ]
@@ -131,7 +131,7 @@
     },
     {
       "title": {
-        "text": "Bivariate key",
+        "text": "How to read the colours",
         "subtitle": "Relative disadvantage ↑",
         "anchor": "middle",
         "fontSize": 12,
