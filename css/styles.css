@@ -506,39 +506,6 @@ footer > * {
   line-height: 1.45;
 }
 
-.technical-notes {
-  margin-top: 18px;
-  background: #f5f3ed;
-  border: 1px solid #e2e0d8;
-  border-radius: 10px;
-}
-
-.technical-notes summary {
-  padding: 13px 16px;
-  color: var(--teal-dark);
-  cursor: pointer;
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.technical-notes summary:hover,
-.technical-notes summary:focus-visible {
-  background: #efede6;
-}
-
-.technical-notes-grid {
-  padding: 0 16px 16px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.technical-notes-grid p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.81rem;
-}
-
 footer {
   background: #10262e;
   color: #d8e3e3;
@@ -587,8 +554,7 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .method-header,
-  .technical-notes-grid {
+  .method-header {
     grid-template-columns: 1fr;
     gap: 14px;
   }
