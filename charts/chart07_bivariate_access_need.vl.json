@@ -149,7 +149,7 @@
       "mark": {"type": "rect", "stroke": "#fffdf8", "strokeWidth": 1.5},
       "encoding": {
         "x": {"field": "access", "type": "ordinal", "sort": ["Lower", "Middle", "Higher"], "title": "Overall access →", "axis": {"labelAngle": 0, "labelFontSize": 9, "titleFontSize": 10}},
-        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": "IRSD disadvantage", "axis": {"labelFontSize": 9, "titleFontSize": 10}},
+        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": "IRSD disadvantage ↑", "axis": {"labelFontSize": 9, "titleFontSize": 10}},
         "color": {
           "field": "class",
           "type": "nominal",
