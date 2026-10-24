@@ -83,7 +83,6 @@ a {
 }
 
 .eyebrow,
-.chart-number,
 .section-number {
   margin: 0 0 10px;
   color: var(--teal);
@@ -197,10 +196,6 @@ footer > * {
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-}
-
-.chart-number {
-  margin-bottom: 4px;
 }
 
 .chart-intro,
