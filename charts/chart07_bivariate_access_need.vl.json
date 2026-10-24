@@ -130,7 +130,14 @@
       ]
     },
     {
-      "title": {"text": "Bivariate key", "anchor": "middle", "fontSize": 12},
+      "title": {
+        "text": "Bivariate key",
+        "subtitle": "Relative disadvantage ↑",
+        "anchor": "middle",
+        "fontSize": 12,
+        "subtitleFontSize": 10,
+        "subtitlePadding": 4
+      },
       "data": {
         "values": [
           {"access": "Lower", "disadvantage": "Higher", "class": "Lower access | Higher disadvantage"},
@@ -149,7 +156,7 @@
       "mark": {"type": "rect", "stroke": "#fffdf8", "strokeWidth": 1.5},
       "encoding": {
         "x": {"field": "access", "type": "ordinal", "sort": ["Lower", "Middle", "Higher"], "title": "Overall access →", "axis": {"labelAngle": 0, "labelFontSize": 9, "titleFontSize": 10}},
-        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": "IRSD disadvantage ↑", "axis": {"labelFontSize": 9, "titleFontSize": 10}},
+        "y": {"field": "disadvantage", "type": "ordinal", "sort": ["Higher", "Middle", "Lower"], "title": null, "axis": {"labelFontSize": 9}},
         "color": {
           "field": "class",
           "type": "nominal",
